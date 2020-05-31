@@ -2,6 +2,57 @@
 <search> 
   
   
+    
+    <entry>
+      <title>Markdown 语法参考</title>
+      <link href="/2020/05/31/testing/"/>
+      <url>/2020/05/31/testing/</url>
+      
+        <content type="html"><![CDATA[<p>#title 1<br>##title 2<br>###title 3<br><strong>bold</strong><br><del>line</del></p><p><em>这会是 斜体 的文字</em><br><em>这会是 斜体 的文字</em></p><p><strong>这会是 粗体 的文字</strong><br><strong>这会是 粗体 的文字</strong></p><p><em>你也 <strong>组合</strong> 这些符号</em></p><p><del>这个文字将会被横线删除</del></p><ul><li><p>Item 1</p></li><li><p>Item 2</p><ul><li>Item 2a</li><li>Item 2b</li></ul><p>有序列表</p></li></ul><ol><li>Item 1</li><li>Item 2</li><li>Item 3<ol><li>Item 3a</li><li>Item 3b</li></ol></li></ol><p>添加图片<br><img src="/images/logo.png" alt="GitHub Logo"><br>Format: <img src="url" alt="Alt Text"><br>链接<br><a href="https://github.com" target="_blank" rel="noopener">https://github.com</a> - 自动生成！<br><a href="https://github.com" target="_blank" rel="noopener">GitHub</a><br>引用<br>正如 Kanye West 所说：</p><blockquote><p>We’re living the future so<br>the present is our past.<br>分割线<br>如下，三个或者更多的</p></blockquote><hr><p>连字符</p><hr><p>星号</p><hr><p>下划线<br>行内代码<br>我觉得你应该在这里使用<br><code>&lt;addr&gt;</code> 才对。<br>代码块<br>你可以在你的代码上面和下面添加 ``` 来表示代码块。</p><p>语法高亮<br>你可以给你的代码块添加任何一种语言的语法高亮</p><p>例如，给 ruby 代码添加语法高亮：</p><pre class=" language-ruby"><code class="language-ruby"><span class="token keyword">require</span> <span class="token string">'redcarpet'</span>markdown <span class="token operator">=</span> <span class="token constant">Redcarpet</span><span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span>puts markdown<span class="token punctuation">.</span>to_html</code></pre><p>会得到下面的效果：</p><p>代码块 class（MPE 扩展的特性）<br>你可以给你的代码块设置 class。</p><p>例如，添加 class1 class2 到一个 代码块：</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">}</span></code></pre><p>代码行数<br>如果你想要你的代码块显示代码行数，只要添加 line-numbers class 就可以了。</p><p>例如：</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">}</span></code></pre><p>高亮代码行数<br>你可以通过添加 highlight 属性的方式来高亮代码行数：</p><pre class=" language-javascript"><code class="language-javascript"></code></pre><pre class=" language-javascript"><code class="language-javascript"></code></pre><pre class=" language-javascript"><code class="language-javascript"></code></pre><p>任务列表</p><ul><li><input checked="" disabled="" type="checkbox"> @mentions, #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported</li><li><input checked="" disabled="" type="checkbox"> list syntax required (any unordered or ordered list supported)</li><li><input checked="" disabled="" type="checkbox"> this is a complete item</li><li><input disabled="" type="checkbox"> this is an incomplete item</li></ul><p>表格</p><table><thead><tr><th>First Header</th><th>Second Header</th></tr></thead><tbody><tr><td>Content from cell 1</td><td>Content from cell 2</td></tr><tr><td>Content in the first column</td><td>Content in the second column</td></tr></tbody></table><p>符号<br>:smile:<br>:fa-car:</p><p>上下标<br>30^th^<br>H<del>2</del>O</p><p>脚注<br>Content [^1]<br>[^1]: Hi! This is a footnote</p><p>缩略</p><p>_[HTML]: Hyper Text Markup Language<br>_[W3C]: World Wide Web Consortium<br>The HTML specification<br>is maintained by the W3C.</p><p>标记<br>==marked==</p><p>chart reference<br><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/diagrams" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/diagrams</a></p><p>import file<br><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/file-imports" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/file-imports</a></p><pre class=" language-bash"><code class="language-bash"><span class="token function">ls</span> <span class="token keyword">.</span></code></pre><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> date <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><p>code chunck <a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/code-chunk" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/code-chunk</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Front-end </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>article title</title>
+      <link href="/2020/05/29/article-title/"/>
+      <url>/2020/05/29/article-title/</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/05/29/hello-world/"/>
+      <url>/2020/05/29/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
   
   
 </search>
