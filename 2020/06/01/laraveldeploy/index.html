@@ -473,17 +473,102 @@
 <li>server system is linux (I use Ubuntu 18.04)</li>
 <li>Command tool(I use iTerm for mac)</li>
 </ul>
-<p>Step 1<br>$ sudo passwd root<br>[sudo] password for ramesh:<br>Enter new UNIX password:<br>Retype new UNIX password:<br>passwd: password updated successfully</p>
-<p>su -root or sudo -i<br>apt-get update<br>apt-get install nginx<br>Nginx -v</p>
-<p>apt-get install mysql-server<br>// 接下来的提示是否确定时输入：Y<br>// 检查是否安装成功：<br>mysql -v<br>// 如果显示版本号之类的就表示安装完成<br>// 上方命令可能会让你进入 mysql 程序中那么你的命令行等待输入的地方就会变成<br>mysql&gt;<br>// 输入 quit 即可退出</p>
-<p>// 1）<br>apt install php7.2-cli<br>// 接下来的提示是否确定时输入：Y<br>// 检查是否安装成功：<br>php -v<br>// 如果显示版本号之类的就表示安装完成</p>
-<p>// 2）<br>// 安装 php-fpm<br>apt-get install php-fpm<br>// 接下来的提示是否确定时输入：Y</p>
-<p>// 3）<br>// 安装扩展<br>// 先查看现有扩展列表<br>php -m</p>
-<p>// 我的输出是这样的<br>[PHP Modules]<br>calendar<br>Core<br>ctype<br>date<br>exif<br>fileinfo<br>filter<br>ftp<br>gettext<br>hash<br>iconv<br>json<br>libxml<br>openssl<br>pcntl<br>pcre<br>PDO<br>Phar<br>posix<br>readline<br>Reflection<br>session<br>shmop<br>sockets<br>sodium<br>SPL<br>standard<br>sysvmsg<br>sysvsem<br>sysvshm<br>tokenizer<br>Zend OPcache<br>zlib           </p>
-<p>[Zend Modules]<br>Zend OPcache</p>
-<p>4）<br>// Laravel 对 PHP 版本和扩展有一定要求，请比对<br>PHP &gt;= 7.1.3<br>PHP OpenSSL 扩展<br>PHP PDO 扩展<br>PHP Mbstring 扩展<br>PHP Tokenizer 扩展<br>PHP XML 扩展<br>PHP Ctype 扩展<br>PHP JSON 扩展</p>
-<p>// 根据比对我们还需安装以下扩展，如果你缺少什么就在下方命令后面增加对应的就行<br>apt-get install php-mysql php-xml php-mbstring php-ctype php-zip php-curl<br>// 接下来的提示是否确定时输入：Y</p>
-<p>// 1）<br>// 进入 ubuntu 的 home 路径<br>cd ~</p>
+<p>###Step 1  Deploy Linux server to AWS</p>
+<p>###Step 2 Connect Server by ssh</p>
+<p>###Step 3 connect as a root </p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">passwd</span> root
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> ramesh:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully</code></pre>
+<p>Or</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">su</span> -root or <span class="token function">sudo</span> -i</code></pre>
+<p>###Step 4 Install Nginx</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> update
+//Update apt is because <span class="token keyword">for</span> <span class="token function">install</span> php nginx and mysql
+<span class="token function">apt-get</span> <span class="token function">install</span> nginx
+nginx -v
+//check <span class="token function">install</span> succeful or not</code></pre>
+<pre class=" language-bash"><code class="language-bash"></code></pre>
+<p>###Step 5 Install MySQL</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> mysql-server
+// <span class="token function">type</span> Y <span class="token keyword">if</span> asking
+mysql -v
+// check is that <span class="token function">install</span> successful
+// you will go to mysql <span class="token function">command</span> like below
+//mysql<span class="token operator">></span>
+// just <span class="token function">type</span> quit <span class="token function">command</span></code></pre>
+<p>###Step 6 Install PHP and Module</p>
+<pre class=" language-bash"><code class="language-bash">//1<span class="token punctuation">)</span>
+apt <span class="token function">install</span> php7.2-cli
+// Tyepe Y <span class="token keyword">if</span> asking 
+// Check <span class="token function">install</span> seccessful 
+php -v
+
+// 2）
+// Install php-fpm
+<span class="token function">apt-get</span> <span class="token function">install</span> php-fpm
+// Tyepe Y <span class="token keyword">if</span> asking 
+
+// 3）
+// Check Module
+php -m
+</code></pre>
+<p>This is  my output </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>PHP Modules<span class="token punctuation">]</span>  
+calendar       
+Core           
+ctype          
+<span class="token function">date</span>           
+exif           
+fileinfo       
+filter         
+<span class="token function">ftp</span>            
+gettext        
+<span class="token function">hash</span>           
+<span class="token function">iconv</span>          
+json           
+libxml         
+openssl        
+pcntl          
+pcre           
+PDO            
+Phar           
+posix          
+readline       
+Reflection     
+session        
+shmop          
+sockets        
+sodium         
+SPL            
+standard       
+sysvmsg        
+sysvsem        
+sysvshm        
+tokenizer      
+Zend OPcache   
+zlib           
+
+
+<span class="token punctuation">[</span>Zend Modules<span class="token punctuation">]</span> 
+Zend OPcache
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">4）
+// Module requirement <span class="token keyword">for</span> laravel ,please check you have these
+PHP <span class="token operator">>=</span> 7.1.3
+PHP OpenSSL 
+PHP PDO 
+PHP Mbstring 
+PHP Tokenizer 
+PHP XML 
+PHP Ctype 
+PHP JSON 
+
+// Install it <span class="token keyword">if</span> you dont have 
+<span class="token function">apt-get</span> <span class="token function">install</span> php-mysql php-xml php-mbstring php-ctype php-zip php-curl
+// Type Y <span class="token keyword">if</span> asking </code></pre>
+<p>###Step 8 Install Conmposer<br>// 1）<br>// 进入 ubuntu 的 home 路径<br>cd ~</p>
 <p>// 2）<br>// 下载安装脚本 － composer-setup.php － 到当前目录<br>php -r “copy(‘<a href="https://install.phpcomposer.com/installer'" target="_blank" rel="noopener">https://install.phpcomposer.com/installer'</a>, ‘composer-setup.php’);”</p>
 <p>// 3）<br>// 执行安装过程<br>php composer-setup.php</p>
 <p>// 4）<br>// 删除安装脚本<br>php -r “unlink(‘composer-setup.php’);”</p>
