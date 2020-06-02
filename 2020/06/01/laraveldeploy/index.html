@@ -466,40 +466,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>##2020Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、Laravel)</p>
-<p>Prepare:</p>
+                <h1 id="2020-Deploy-Laravel-Environment-LNMP-Linux、Nginx、MySQL、PHP、Laravel"><a href="#2020-Deploy-Laravel-Environment-LNMP-Linux、Nginx、MySQL、PHP、Laravel" class="headerlink" title="2020 Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、Laravel)"></a>2020 Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、Laravel)</h1><p>Prepare:</p>
 <ul>
 <li>server(I use aws servcice)</li>
 <li>server system is linux (I use Ubuntu 18.04)</li>
 <li>Command tool(I use iTerm for mac)</li>
 </ul>
-<p>###Step 1  Deploy Linux server to AWS</p>
-<p>###Step 2 Connect Server by ssh</p>
-<p>###Step 3 connect as a root </p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">passwd</span> root
+<h3 id="Step-1-Deploy-Linux-server-to-AWS"><a href="#Step-1-Deploy-Linux-server-to-AWS" class="headerlink" title="Step 1  Deploy Linux server to AWS"></a>Step 1  Deploy Linux server to AWS</h3><h3 id="Step-2-Connect-Server-by-ssh"><a href="#Step-2-Connect-Server-by-ssh" class="headerlink" title="Step 2 Connect Server by ssh"></a>Step 2 Connect Server by ssh</h3><h3 id="Step-3-connect-as-a-root"><a href="#Step-3-connect-as-a-root" class="headerlink" title="Step 3 connect as a root"></a>Step 3 connect as a root</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">passwd</span> root
 <span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> ramesh:
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully</code></pre>
 <p>Or</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">su</span> -root or <span class="token function">sudo</span> -i</code></pre>
-<p>###Step 4 Install Nginx</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> update
+<h3 id="Step-4-Install-Nginx"><a href="#Step-4-Install-Nginx" class="headerlink" title="Step 4 Install Nginx"></a>Step 4 Install Nginx</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> update
 //Update apt is because <span class="token keyword">for</span> <span class="token function">install</span> php nginx and mysql
 <span class="token function">apt-get</span> <span class="token function">install</span> nginx
 nginx -v
 //check <span class="token function">install</span> succeful or not</code></pre>
 <pre class=" language-bash"><code class="language-bash"></code></pre>
-<p>###Step 5 Install MySQL</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> mysql-server
+<h3 id="Step-5-Install-MySQL"><a href="#Step-5-Install-MySQL" class="headerlink" title="Step 5 Install MySQL"></a>Step 5 Install MySQL</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> mysql-server
 // <span class="token function">type</span> Y <span class="token keyword">if</span> asking
 mysql -v
 // check is that <span class="token function">install</span> successful
 // you will go to mysql <span class="token function">command</span> like below
 //mysql<span class="token operator">></span>
 // just <span class="token function">type</span> quit <span class="token function">command</span></code></pre>
-<p>###Step 6 Install PHP and Module</p>
-<pre class=" language-bash"><code class="language-bash">//1<span class="token punctuation">)</span>
+<h3 id="Step-6-Install-PHP-and-Module"><a href="#Step-6-Install-PHP-and-Module" class="headerlink" title="Step 6 Install PHP and Module"></a>Step 6 Install PHP and Module</h3><pre class=" language-bash"><code class="language-bash">//1<span class="token punctuation">)</span>
 apt <span class="token function">install</span> php7.2-cli
 // Tyepe Y <span class="token keyword">if</span> asking 
 // Check <span class="token function">install</span> seccessful 
@@ -568,7 +561,7 @@ PHP JSON
 // Install it <span class="token keyword">if</span> you dont have 
 <span class="token function">apt-get</span> <span class="token function">install</span> php-mysql php-xml php-mbstring php-ctype php-zip php-curl
 // Type Y <span class="token keyword">if</span> asking </code></pre>
-<p>###Step 8 Install Conmposer<br>// 1）<br>// 进入 ubuntu 的 home 路径<br>cd ~</p>
+<h3 id="Step-8-Install-Conmposer"><a href="#Step-8-Install-Conmposer" class="headerlink" title="Step 8 Install Conmposer"></a>Step 8 Install Conmposer</h3><p>// 1）<br>// 进入 ubuntu 的 home 路径<br>cd ~</p>
 <p>// 2）<br>// 下载安装脚本 － composer-setup.php － 到当前目录<br>php -r “copy(‘<a href="https://install.phpcomposer.com/installer'" target="_blank" rel="noopener">https://install.phpcomposer.com/installer'</a>, ‘composer-setup.php’);”</p>
 <p>// 3）<br>// 执行安装过程<br>php composer-setup.php</p>
 <p>// 4）<br>// 删除安装脚本<br>php -r “unlink(‘composer-setup.php’);”</p>
@@ -868,11 +861,10 @@ PHP JSON
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##2020Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、Laravel)
-Prepare:
+                            2020 Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、Laravel)Prepare:
 
 server(I use aws servcice)
-server system
+server system i
                         
                     </div>
                     <div class="publish-info">
