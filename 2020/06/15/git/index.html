@@ -591,7 +591,109 @@ $ gti add -u
 <li>git add -u ：操作的对象是整个工作区已经跟踪的文件变更，无论当前位于哪个目录下。仅监控已经被 add 的文件（即 tracked file），它会将被修改的文件（包括文件删除）提交到暂存区。git add -u 不会提交新文件（untracked file）。（git add –update 的缩写）</li>
 <li>git add -A ：操作的对象是“整个工作区”所有文件的变更，无论当前位于哪个目录下。是上面两个功能的合集（git add –all 的缩写）。</li>
 </ul>
-<h2 id="Status"><a href="#Status" class="headerlink" title="Status"></a>Status</h2><script>
+<h2 id="Status"><a href="#Status" class="headerlink" title="Status"></a>Status</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区的状态</span>
+<span class="token command">$ git status </span></code></pre>
+<p>##Commit</p>
+<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 将暂存区的文件提交到本地仓库并添加提交说明</span>
+<span class="token command">$ git commit<span class="token parameter"> -m</span> </span><span class="token string">"本次提交的说明"</span>   
+
+<span class="token comment" spellcheck="true"># add 和 commit 的合并，便捷写法</span>
+<span class="token comment" spellcheck="true"># 和 git add -u 命令一样，未跟踪的文件是无法提交上去的</span>
+<span class="token command">$ git commit<span class="token parameter"> -am</span> </span><span class="token string">"本次提交的说明"</span>  
+
+<span class="token comment" spellcheck="true"># 跳过验证继续提交</span>
+<span class="token command">$ git commit<span class="token parameter"> --no</span>-verify</span>
+<span class="token command">$ git commit<span class="token parameter"> -n</span></span>
+
+<span class="token comment" spellcheck="true"># 编辑器会弹出上一次提交的信息，可以在这里修改提交信息</span>
+<span class="token command">$ git commit<span class="token parameter"> --amend</span></span>
+<span class="token comment" spellcheck="true"># 修复提交，同时修改提交信息</span>
+<span class="token command">$ git commit<span class="token parameter"> --amend</span><span class="token parameter"> -m</span> </span><span class="token string">"本次提交的说明"</span>
+<span class="token comment" spellcheck="true"># 加入 --no-edit 标记会修复提交但不修改提交信息，编辑器不会弹出上一次提交的信息</span>
+<span class="token command">$ git commit<span class="token parameter"> --amend</span><span class="token parameter"> --no</span>-edit</span></code></pre>
+<ul>
+<li>git commit –amend 既可以修改上次提交的文件内容，也可以修改上次提交的说明。会用一个新的 commit 更新并替换最近一次提交的 commit 。如果暂存区有内容，这个新的 commit 会把任何修改内容和上一个 commit 的内容结合起来。如果暂存区没有内容，那么这个操作就只会把上次的 commit 消息重写一遍。永远不要修复一个已经推送到公共仓库中的提交，会拒绝推送到仓库</li>
+</ul>
+<h2 id="push-amp-pull"><a href="#push-amp-pull" class="headerlink" title="push &amp; pull"></a>push &amp; pull</h2><p>分支推送顺序的写法是 &lt;来源地&gt;:&lt;目的地&gt;</p>
+<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 将本地仓库的文件推送到远程分支</span>
+<span class="token comment" spellcheck="true"># 如果远程仓库没有这个分支，会新建一个同名的远程分支</span>
+<span class="token comment" spellcheck="true"># 如果省略远程分支名，则表示两者同名</span>
+<span class="token command">$ git push &lt;远程主机名> &lt;本地分支名>:&lt;远程分支名></span>
+<span class="token command">$ git push origin branchname  </span>
+
+<span class="token comment" spellcheck="true"># 如果省略本地分支名，则表示删除指定的远程分支</span>
+<span class="token comment" spellcheck="true"># 因为这等同于推送一个空的本地分支到远程分支。</span>
+<span class="token command">$ git push origin :master</span>
+<span class="token comment" spellcheck="true"># 等同于</span>
+<span class="token command">$ git push origin<span class="token parameter"> --delete</span> master</span>
+
+<span class="token comment" spellcheck="true"># 建立当前分支和远程分支的追踪关系</span>
+<span class="token command">$ git push<span class="token parameter"> -u</span> origin master</span>
+<span class="token comment" spellcheck="true"># 如果当前分支与远程分支之间存在追踪关系</span>
+<span class="token comment" spellcheck="true"># 则可以省略分支和 -u </span>
+<span class="token command">$ git push</span>
+
+<span class="token comment" spellcheck="true"># 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机</span>
+<span class="token command">$ git push<span class="token parameter"> --all</span> origin</span>
+
+<span class="token comment" spellcheck="true"># 拉取所有远程分支到本地镜像仓库中</span>
+<span class="token command">$ git pull</span>
+<span class="token comment" spellcheck="true"># 拉取并合并项目其他人员的一个分支 </span>
+<span class="token command">$ git pull origin branchname  </span>
+<span class="token comment" spellcheck="true"># 等同于 fetch + merge</span>
+<span class="token command">$ git fetch origin branchName</span>
+<span class="token command">$ git merge origin/branchName</span>
+
+<span class="token comment" spellcheck="true"># 如果远程主机的版本比本地版本更新，推送时 Git 会报错，要求先在本地做 git pull 合并差异，</span>
+<span class="token comment" spellcheck="true"># 然后再推送到远程主机。这时，如果你一定要推送，可以使用 –-force 选项 </span>
+<span class="token comment" spellcheck="true"># （尽量避免使用）</span>
+<span class="token command">$ git push<span class="token parameter"> --force</span> origin | git push<span class="token parameter"> -f</span> origin</span></code></pre>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看本地分支</span>
+<span class="token command">$ git branch | git branch<span class="token parameter"> -l</span> </span>
+<span class="token comment" spellcheck="true"># 查看远程分支</span>
+<span class="token command">$ git branch<span class="token parameter"> -r</span> </span>
+<span class="token comment" spellcheck="true"># 查看所有分支（本地分支+远程分支）</span>
+<span class="token command">$ git branch<span class="token parameter"> -a</span> </span>
+<span class="token comment" spellcheck="true"># 查看所有分支并带上最新的提交信息</span>
+<span class="token command">$ git branch<span class="token parameter"> -av</span> </span>
+<span class="token comment" spellcheck="true"># 查看本地分支对应的远程分支</span>
+<span class="token command">$ git branch<span class="token parameter"> -vv</span> </span>
+
+<span class="token comment" spellcheck="true"># 新建分支</span>
+<span class="token comment" spellcheck="true"># 在别的分支下新建一个分支，新分支会复制当前分支的内容</span>
+<span class="token comment" spellcheck="true"># 注意：如果当前分支有修改，但是没有提交到仓库，此时修改的内容是不会被复制到新分支的</span>
+<span class="token command">$ git branch branchname </span>
+<span class="token comment" spellcheck="true"># 切换分支(切换分支时，本地工作区，仓库都会相应切换到对应分支的内容)</span>
+<span class="token command">$ git checkout branchname </span>
+<span class="token comment" spellcheck="true"># 创建一个 aaa 分支，并切换到该分支 （新建分支和切换分支的简写）</span>
+<span class="token command">$ git checkout<span class="token parameter"> -b</span> aaa </span>
+<span class="token comment" spellcheck="true"># 可以看做是基于 master 分支创建一个 aaa 分支，并切换到该分支</span>
+<span class="token command">$ git checkout<span class="token parameter"> -b</span> aaa master</span>
+
+<span class="token comment" spellcheck="true"># 新建一条空分支（详情请看问题列表）</span>
+<span class="token command">$ git checkout<span class="token parameter"> --orphan</span> emptyBranchName</span>
+<span class="token command">$ git rm<span class="token parameter"> -rf</span> . </span>
+
+<span class="token comment" spellcheck="true"># 删除本地分支,会阻止删除包含未合并更改的分支</span>
+<span class="token command">$ git brnach<span class="token parameter"> -d</span> branchname </span>
+<span class="token comment" spellcheck="true"># 强制删除一个本地分支，即使包含未合并更改的分支</span>
+<span class="token command">$ git branch<span class="token parameter"> -D</span> branchname  </span>
+<span class="token comment" spellcheck="true"># 删除远程分支</span>
+<span class="token comment" spellcheck="true"># 推送一个空分支到远程分支，其实就相当于删除远程分支</span>
+<span class="token command">$ git push origin  :远程分支名</span>
+<span class="token comment" spellcheck="true"># 或者</span>
+<span class="token command">$ git push origin<span class="token parameter"> --delete</span> 远程分支名 </span>
+
+<span class="token comment" spellcheck="true"># 修改当前分支名</span>
+<span class="token command">$ git branch<span class="token parameter"> -m</span> branchname </span></code></pre>
+<h2 id="merge三种常用合并方法"><a href="#merge三种常用合并方法" class="headerlink" title="merge三种常用合并方法"></a>merge三种常用合并方法</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 默认 fast-forward ，HEAD 指针直接指向被合并的分支</span>
+<span class="token command">$ git merge </span>
+
+<span class="token comment" spellcheck="true"># 禁止快进式合并</span>
+<span class="token command">$ git merge<span class="token parameter"> --no</span>-ff </span>
+
+<span class="token command">$ git merge<span class="token parameter"> --squash</span> </span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
