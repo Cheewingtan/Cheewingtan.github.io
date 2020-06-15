@@ -466,8 +466,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Git-流程图"><a href="#Git-流程图" class="headerlink" title="Git 流程图"></a>Git 流程图</h2><p><img src="source/medias/git.png" alt="GitHub Logo"></p>
-<p>-Workspace:工作区<br>-Index/Stage:暂存区<br>-Repository:本地仓库<br>-Remote:远程仓库</p>
+                <h1 id="Git-流程图"><a href="#Git-流程图" class="headerlink" title="Git 流程图"></a>Git 流程图</h1><p><img src="source/medias/git.png" alt="GitHub Logo"></p>
+<ul>
+<li>Workspace:工作区</li>
+<li>Index/Stage:暂存区</li>
+<li>Repository:本地仓库</li>
+<li>Remote:远程仓库</li>
+</ul>
 <h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 配置全局用户</span>
 <span class="token command">$ git config<span class="token parameter"> --global</span> user.name </span><span class="token string">"用户名"</span> 
 <span class="token command">$ git config<span class="token parameter"> --global</span> user.email </span><span class="token string">"git账号"</span>
@@ -483,8 +488,7 @@
 <span class="token command">$ git config<span class="token parameter"> --global</span><span class="token parameter"> --unset</span> alias.xxx</span>
 <span class="token command">$ git config<span class="token parameter"> --global</span><span class="token parameter"> --unset</span> user.xxx</span>
 </code></pre>
-<p>查看Git信息</p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看系统配置</span>
+<h1 id="查看Git信息"><a href="#查看Git信息" class="headerlink" title="查看Git信息"></a>查看Git信息</h1><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看系统配置</span>
 <span class="token command">$ git config<span class="token parameter"> --list</span></span>
 <span class="token comment" spellcheck="true"># 查看用户配置</span>
 $ cat ~/.gitconfig 
@@ -528,8 +532,8 @@ $ cat .git/HEAD
 <span class="token comment" spellcheck="true"># pretty=format:"xxx" ->  可以定制要显示的记录格式 ！！！</span>
 <span class="token comment" spellcheck="true"># p -> 显示每次提交所引入的差异（按 补丁 的格式输出）！！！</span>
 </code></pre>
-<h1 id="Git-reflog"><a href="#Git-reflog" class="headerlink" title="Git reflog"></a>Git reflog</h1><p>-显示的是一个 HEAD 指向发生改变的时间列表。在你切换分支、用 git commit 进行提交、以及用 git reset 撤销 commit 时，HEAD 指向会改变，但当你进行 git checkout – <filename> 撤销或者 git stash  存储文件等操作时，HEAD 并不会改变，这些修改从来没有被提交过，因此 reflog 也无法帮助我们恢复它们。<br>-git reflog 不会永远保持，Git 会定期清理那些 “用不到的” 对象，不要指望几个月前的提交还一直在那里。</filename></p>
-<h1 id="Git-log-点线图"><a href="#Git-log-点线图" class="headerlink" title="Git log 点线图"></a>Git log 点线图</h1><p>-git 中一条分支就是一个指针，新建一条分支就是基于当前指针新建一个指针<br>-切换至某个分支 ，就是将 HEAD 指向某条分支（指针）<br>-切换至某个 commit ，就是将 HEAD 指向某个 commit</p>
+<h2 id="Git-reflog"><a href="#Git-reflog" class="headerlink" title="Git reflog"></a>Git reflog</h2><p>-显示的是一个 HEAD 指向发生改变的时间列表。在你切换分支、用 git commit 进行提交、以及用 git reset 撤销 commit 时，HEAD 指向会改变，但当你进行 git checkout – <filename> 撤销或者 git stash  存储文件等操作时，HEAD 并不会改变，这些修改从来没有被提交过，因此 reflog 也无法帮助我们恢复它们。<br>-git reflog 不会永远保持，Git 会定期清理那些 “用不到的” 对象，不要指望几个月前的提交还一直在那里。</filename></p>
+<h2 id="Git-log-点线图"><a href="#Git-log-点线图" class="headerlink" title="Git log 点线图"></a>Git log 点线图</h2><p>-git 中一条分支就是一个指针，新建一条分支就是基于当前指针新建一个指针<br>-切换至某个分支 ，就是将 HEAD 指向某条分支（指针）<br>-切换至某个 commit ，就是将 HEAD 指向某个 commit</p>
 <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区的状态</span>
 <span class="token command">$ git status </span>
 <span class="token comment" spellcheck="true"># 将工作区的文件提交到暂存区</span>
@@ -557,7 +561,8 @@ $ cat .git/HEAD
 <span class="token comment" spellcheck="true"># 将之前保存至堆栈中的文件取出来</span>
 <span class="token command">$ git stash pop</span>
 </code></pre>
-<h1 id="Git-常用命令详解"><a href="#Git-常用命令详解" class="headerlink" title="Git 常用命令详解"></a>Git 常用命令详解</h1><h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><h3 id="将工作区的文件添加到暂存区"><a href="#将工作区的文件添加到暂存区" class="headerlink" title="将工作区的文件添加到暂存区"></a>将工作区的文件添加到暂存区</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 添加指定文件到暂存区（追踪新增的指定文件）</span>
+<h1 id="Git-常用命令详解"><a href="#Git-常用命令详解" class="headerlink" title="Git 常用命令详解"></a>Git 常用命令详解</h1><h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><p> 将工作区的文件添加到暂存区</p>
+<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 添加指定文件到暂存区（追踪新增的指定文件）</span>
 <span class="token command">$ git add [file1] [file2] ...</span>
 <span class="token comment" spellcheck="true"># 添加指定目录到暂存区，包括子目录</span>
 <span class="token command">$ git add [dir]</span>
@@ -581,7 +586,12 @@ $ gti add -u
 <span class="token comment" spellcheck="true"># Git 2.0 版本</span>
 <span class="token command">$ git add . 等价于 $ git add<span class="token parameter"> -A</span> </span>
 </code></pre>
-<script>
+<ul>
+<li>git add . ：操作的对象是“当前目录”所有文件变更，”.” 表示当前目录。会监控工作区的状态树，使用它会把工作区的所有变化提交到暂存区，包括文件内容修改（modified）以及新文件（new），但不包括被删除的文件。</li>
+<li>git add -u ：操作的对象是整个工作区已经跟踪的文件变更，无论当前位于哪个目录下。仅监控已经被 add 的文件（即 tracked file），它会将被修改的文件（包括文件删除）提交到暂存区。git add -u 不会提交新文件（untracked file）。（git add –update 的缩写）</li>
+<li>git add -A ：操作的对象是“整个工作区”所有文件的变更，无论当前位于哪个目录下。是上面两个功能的合集（git add –all 的缩写）。</li>
+</ul>
+<h2 id="Status"><a href="#Status" class="headerlink" title="Status"></a>Status</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -719,10 +729,14 @@ $ gti add -u
                     <div class="summary block-with-text">
                         
                             Git 流程图
--Workspace:工作区-Index/Stage:暂存区-Repository:本地仓库-Remote:远程仓库
+
+Workspace:工作区
+Index/Stage:暂存区
+Repository:本地仓库
+Remote:远程仓库
+
 配置Git# 配置全局用户
 $ git config --global user.name "用户名" 
-
                         
                     </div>
                     <div class="publish-info">
