@@ -436,12 +436,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Git/">
+                                <span class="chip bg-color">Git</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Tech/" class="post-category">
+                                Tech
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -730,6 +743,138 @@ $ gti add -u
 <span class="token command">$ git stash show </span><span class="token string">"stash@{index}"</span>
 <span class="token comment" spellcheck="true"># 查看当前记录中修改了哪些文件的内容</span>
 <span class="token command">$ git stash show<span class="token parameter"> -p</span> </span><span class="token string">"stash@{index}"</span> </code></pre>
+<h3 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区单个文件的对比</span>
+<span class="token command">$ git diff filename </span>
+<span class="token comment" spellcheck="true"># 查看工作区和暂存区所有文件的对比</span>
+<span class="token command">$ git diff </span>
+<span class="token comment" spellcheck="true"># 查看工作区和暂存区所有文件的对比，并显示出所有有差异的文件列表</span>
+<span class="token command">$ git diff<span class="token parameter"> --stat</span>   </span>
+<span class="token comment" spellcheck="true"># 注意：</span>
+<span class="token comment" spellcheck="true"># 1.你修改了某个文件，但是没有提交到暂存区，这时候会有对比的内容</span>
+<span class="token comment" spellcheck="true"># 一旦提交到暂存区，就不会有对比的内容(因为暂存区已经更新)</span>
+<span class="token comment" spellcheck="true"># 2.如果你新建了一个文件，但是没有提交到暂存区，这时候 diff 是没有结果的    </span>
+
+<span class="token comment" spellcheck="true"># 查看暂存区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比</span>
+<span class="token command">$ git diff<span class="token parameter"> --cached</span>/--staged</span>
+<span class="token comment" spellcheck="true"># 查看工作区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比</span>
+<span class="token command">$ git diff branchname</span>
+<span class="token comment" spellcheck="true"># 查看工作区与 HEAD 指向（默认当前分支最新的提交）的对比</span>
+<span class="token command">$ git diff HEAD   </span>
+
+<span class="token comment" spellcheck="true"># 查看两个本地分支中某一个文件的对比</span>
+<span class="token command">$ git diff branchname..branchname filename </span>
+<span class="token comment" spellcheck="true"># 查看两个本地分支所有的对比</span>
+<span class="token command">$ git diff branchname..branchname </span>
+<span class="token comment" spellcheck="true"># 查看远程分支和本地分支的对比</span>
+<span class="token command">$ git diff origin/branchname..branchname </span>
+<span class="token comment" spellcheck="true"># 查看远程分支和远程分支的对比</span>
+<span class="token command">$ git diff origin/branchname..origin/branchname </span>
+
+<span class="token comment" spellcheck="true"># 查看两个 commit 的对比</span>
+<span class="token command">$ git diff commit1..commit2  </span></code></pre>
+<h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看所有远程主机</span>
+<span class="token command">$ git remote</span>
+<span class="token comment" spellcheck="true"># 查看关联的远程仓库的详细信息</span>
+<span class="token command">$ git remote<span class="token parameter"> -v</span> </span>
+<span class="token comment" spellcheck="true"># 删除远程仓库的 “关联”</span>
+<span class="token command">$ git remote rm projectname </span>
+<span class="token comment" spellcheck="true"># 设置远程仓库的 “关联”</span>
+<span class="token command">$ git remote set-url origin &lt;newurl></span></code></pre>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><p>常用于发布版本</p>
+<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 默认在 HEAD 上创建一个标签 </span>
+<span class="token command">$ git tag v1.0</span>
+<span class="token comment" spellcheck="true"># 指定一个 commit id 创建一个标签 </span>
+<span class="token command">$ git tag v0.9 f52c633</span>
+<span class="token comment" spellcheck="true"># 创建带有说明的标签，用 -a 指定标签名，-m 指定说明文字</span>
+<span class="token command">$ git tag<span class="token parameter"> -a</span> v0.1<span class="token parameter"> -m</span> </span><span class="token string">"version 0.1 released"</span> 
+
+<span class="token comment" spellcheck="true"># 查看所有标签</span>
+<span class="token comment" spellcheck="true"># 注意：标签不是按时间顺序列出，而是按字母排序的。</span>
+<span class="token command">$ git tag</span>
+
+<span class="token comment" spellcheck="true"># 查看单个标签具体信息</span>
+<span class="token command">$ git show &lt;tagname></span>
+
+<span class="token comment" spellcheck="true"># 推送一个本地标签</span>
+<span class="token command">$ git push origin &lt;tagname></span>
+<span class="token comment" spellcheck="true"># 推送全部未推送过的本地标签</span>
+<span class="token command">$ git push origin<span class="token parameter"> --tags</span></span>
+
+<span class="token comment" spellcheck="true"># 删除本地标签</span>
+<span class="token comment" spellcheck="true"># 因为创建的标签都只存储在本地，不会自动推送到远程。</span>
+<span class="token comment" spellcheck="true"># 所以，打错的标签可以在本地安全删除。</span>
+<span class="token command">$ git tag<span class="token parameter"> -d</span> v0.1</span>
+<span class="token comment" spellcheck="true"># 删除一个远程标签（先删除本地 tag ，然后再删除远程 tag）</span>
+<span class="token command">$ git push origin :refs/tags/&lt;tagname></span></code></pre>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 删除暂存区和工作区的文件</span>
+<span class="token command">$ git rm filename  </span>
+<span class="token comment" spellcheck="true"># 只删除暂存区的文件，不会删除工作区的文件</span>
+<span class="token command">$ git rm<span class="token parameter"> --cached</span> filename </span></code></pre>
+<p>如果在配置 .gitignore 文件之前就把某个文件上传到远程仓库了，这时候想把远程仓库中的该文件删除，此时你配置 .gitignore 文件也没有用，因为该文件已经被追踪了，但又不想在本地删除该文件后再重新提交到远程仓库，这时候可以使用 git rm –cached filename 命令取消该文件的追踪，这样下次提交的时候，git 就不会再提交这个文件，从而远程仓库的该文件也会被删除</p>
+<p>版本切换 &amp; 重设 &amp; 撤销</p>
+<ul>
+<li>checkout 可以撤销工作区的文件，reset 可以撤销工作区/暂存区的文件</li>
+<li>reset 和 checkout 可以作用于 commit 或者文件，revert 只能作用于 commit</li>
+</ul>
+<h3 id="checkout-详解"><a href="#checkout-详解" class="headerlink" title="checkout 详解"></a>checkout 详解</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 恢复暂存区的指定文件到工作区</span>
+<span class="token command">$ git checkout &lt;filename></span>
+<span class="token comment" spellcheck="true"># 恢复暂存区的所有文件到工作区</span>
+<span class="token command">$ git checkout .</span>
+
+<span class="token comment" spellcheck="true"># 回滚到最近的一次提交</span>
+<span class="token comment" spellcheck="true"># 如果修改某些文件后，没有提交到暂存区，此时的回滚是回滚到上一次提交</span>
+<span class="token comment" spellcheck="true"># 如果是已经将修改的文件提交到仓库了，这时再用这个命令回滚无效</span>
+<span class="token comment" spellcheck="true"># 因为回滚到的是之前自己修改后提交的版本</span>
+<span class="token command">$ git checkout HEAD </span>
+<span class="token command">$ git checkout HEAD -- filename</span>
+<span class="token comment" spellcheck="true"># 回滚到最近一次提交的上一个版本</span>
+<span class="token command">$ git checkout HEAD^ </span>
+<span class="token comment" spellcheck="true"># 回滚到最近一次提交的上2个版本</span>
+<span class="token command">$ git checkout HEAD^^ </span>
+
+<span class="token comment" spellcheck="true"># 切换分支，在这里也可以看做是回到项目「当前」状态的方式</span>
+<span class="token command">$ git checkout &lt;当前你正在使用的分支></span>
+<span class="token comment" spellcheck="true"># 切换到某个指定的 commit 版本</span>
+<span class="token command">$ git checkout &lt;commit_id></span>
+<span class="token comment" spellcheck="true"># 切换指定 tag </span>
+<span class="token command">$ git checkout &lt;tag></span></code></pre>
+<ul>
+<li>在开发的正常阶段，HEAD 一般指向 master 或是其他的本地分支，但当你使用 git checkout <commit id=""> 切换到指定的某一次提交的时候，HEAD 就不再指向一个分支了——它直接指向一个提交，HEAD 就会处于 detached 状态（游离状态）。</commit></li>
+<li>切换到某一次提交后，你可以查看文件，编译项目，运行测试，甚至编辑文件而不需要考虑是否会影响项目的当前状态，你所做的一切都不会被保存到主栈的仓库中。当你想要回到主线继续开发时，使用 git checkout branchName 回到项目初始的状态（这时候会提示你是否需要新建一条分支用于保留刚才的修改）。</li>
+<li>哪怕你切换到了某一版本的提交，并且对它做了修改后，不小心提交到了暂存区，只要你切换回分支的时候，依然会回到项目的初始状态。（注意：你所做的修改，如果 commit 了，会被保存到那个版本中。切换完分支后，会提示你是否要新建一个分支来保存刚才修改的内容。如果你刚才解决了一个 bug ，这时候可以新建一个临时分支，然后你本地自己的开发主分支去合并它，合并完后删除临时分支）。</li>
+<li>一般我都是用 checkout 回退版本，查看历史代码，测试 bug 在哪</li>
+</ul>
+<h3 id="reset-详解"><a href="#reset-详解" class="headerlink" title="reset 详解"></a>reset 详解</h3><p>git reset [–hard|soft|mixed|merge|keep] [<commit>或HEAD]：将当前的分支重设(reset)到指定的 <commit> 或者 HEAD (默认，如果不显示指定 <commit>，默认是 HEAD ，即最新的一次提交)，并且根据 [mode] 有可能更新索引和工作目录。mode 的取值可以是 hard、soft、mixed、merged、keep 。</commit></commit></commit></p>
+<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 从暂存区撤销特定文件，但不改变工作区。它会取消这个文件的暂存，而不覆盖任何更改</span>
+<span class="token command">$ git reset &lt;fileName></span>
+<span class="token comment" spellcheck="true"># 重置暂存区最近的一次提交，但工作区的文件不变</span>
+<span class="token command">$ git reset </span>
+<span class="token comment" spellcheck="true"># 等价于 </span>
+<span class="token command">$ git reset HEAD （默认）</span>
+<span class="token comment" spellcheck="true"># 重置暂存区与工作区，回退到最近一次提交的版本内容</span>
+<span class="token command">$ git reset<span class="token parameter"> --hard</span> </span>
+<span class="token comment" spellcheck="true"># 重置暂存区与工作区，回退到最近一次提交的上一个版本</span>
+<span class="token command">$ git reset<span class="token parameter"> --hard</span> HEAD^ </span>
+
+<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区，但工作区不变</span>
+<span class="token command">$ git reset &lt;commit></span>
+<span class="token comment" spellcheck="true"># 等价于 </span>
+<span class="token command">$ git reset<span class="token parameter"> --mixed</span>  &lt;commit></span>
+
+<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），但保持暂存区和工作区不变</span>
+<span class="token command">$ git reset<span class="token parameter"> --soft</span>  &lt;commit></span>
+<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区、工作区</span>
+<span class="token command">$ git reset<span class="token parameter"> --hard</span>  &lt;commit></span></code></pre>
+<ul>
+<li>git reset 有很多种用法。它可以被用来移除提交快照，尽管它通常被用来撤销暂存区和工作区的修改。不管是哪种情况，它应该只被用于本地修改——你永远不应该重设和其他开发者共享的快照。</li>
+<li>当你用 reset 回滚到了某个版本后，那么在下一次 git 提交时，之前该版本后面的版本会被作为垃圾删掉。</li>
+<li>当我们回退到一个旧版本后，此时再用 git log 查看提交记录，会发现之前的新版本记录没有了。如果第二天，你又想恢复到新版本怎么办？找不到新版本的 commit_id 怎么办？</li>
+</ul>
+<p>我们可以用 git reflog 查看历史命令，这样就可以看到之前新版本的 commit_id ，然后 git reset –hard commit_id 就可以回到之前的新版本代码</p>
+<ul>
+<li>虽然可以用 git reflog 查看本地历史，然后回复到之前的新版本代码，但是在别的电脑上是无法获取你的历史命令的，所以这种方法不安全。万一你的电脑突然坏了，这时候就无法回到未来的版本。</li>
+</ul>
+<p>未完待白嫖。。。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -810,7 +955,11 @@ $ gti add -u
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -884,13 +1033,25 @@ $ git config --global user.name "用户名"
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Cheewing
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech/" class="post-category">
+                                    Tech
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
