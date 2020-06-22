@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>serverless</title>
+      <link href="/2020/06/22/serveless/"/>
+      <url>/2020/06/22/serveless/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍Serverless"><a href="#介绍Serverless" class="headerlink" title="介绍Serverless"></a>介绍Serverless</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git</title>
       <link href="/2020/06/15/git/"/>
       <url>/2020/06/15/git/</url>
