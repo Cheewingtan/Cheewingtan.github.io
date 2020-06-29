@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>gejiucai</title>
+      <link href="/2020/06/29/gejiucai/"/>
+      <url>/2020/06/29/gejiucai/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于割韭菜的思考"><a href="#关于割韭菜的思考" class="headerlink" title="关于割韭菜的思考"></a>关于割韭菜的思考</h1><h2 id="割韭菜的常规操作以及成为韭菜的动机"><a href="#割韭菜的常规操作以及成为韭菜的动机" class="headerlink" title="割韭菜的常规操作以及成为韭菜的动机"></a>割韭菜的常规操作以及成为韭菜的动机</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>serverless</title>
       <link href="/2020/06/22/serveless/"/>
       <url>/2020/06/22/serveless/</url>
