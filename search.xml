@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Google_Seo_01</title>
+      <link href="/2020/11/17/Google-Seo01/"/>
+      <url>/2020/11/17/Google-Seo01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Google-SEO-class-summary-from-Brian-Dean"><a href="#Google-SEO-class-summary-from-Brian-Dean" class="headerlink" title="Google SEO class summary from Brian Dean"></a>Google SEO class summary from Brian Dean</h1><h2 id="MODULE-0-WHAT’S-WORKING-RIGHT-NOW-IN-SEO"><a href="#MODULE-0-WHAT’S-WORKING-RIGHT-NOW-IN-SEO" class="headerlink" title="MODULE 0 WHAT’S WORKING RIGHT NOW IN SEO"></a>MODULE 0 WHAT’S WORKING RIGHT NOW IN SEO</h2><h3 id="The-Old-World-SEO-Mistake"><a href="#The-Old-World-SEO-Mistake" class="headerlink" title="The Old World SEO Mistake"></a>The Old World SEO Mistake</h3><pre><code>- Regularly update site with fresh, quality content.    - Too many people use this strategies to improve their page ,for now Keep updating the site with fresh ,quality content ,it will zero effect for ranking.     - Spend time to promote content &gt; Update content  - Focusing on Long Tail Keywords    - Google can figure out the intend behind a keyword     - STW system ,Medium Tail Keywords- Not Proactively Building Links (Publish and Pray)</code></pre><h3 id="The-New-World-SEO"><a href="#The-New-World-SEO" class="headerlink" title="The New World SEO"></a>The New World SEO</h3><pre><code>- Linkreator    - Focused content    - Find Your Linkreator ,create specific content for them     - - Proven Content    - Framework     - Generate content include Backlink, Social Share,First Page Google Ranking    - First Page Google = Grate Content =&gt; Content Framework    - Content Framework         - Share Trigger = some infographic might give some powerful share trigger        - Social Currency- Content Promotion and Link Building    -  </code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> SEO </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SEO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>中国农历的算法</title>
       <link href="/2020/11/08/Lunar/"/>
       <url>/2020/11/08/Lunar/</url>
