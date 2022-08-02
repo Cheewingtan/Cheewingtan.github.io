@@ -1,1089 +1,591 @@
+
+
+
+
 <!DOCTYPE html>
-<html>
-  <!-- meta/link... -->
-  
-
-
-
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-  <title>git | 志荣</title>
+<link rel="alternate" type="application/rss+xml" title="星霜荏苒" href="https://cheewingtan.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="星霜荏苒" href="https://cheewingtan.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="星霜荏苒" href="https://cheewingtan.github.io/feed.json" />
 
-  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
-  <link href="https://cdn.jsdelivr.net/gh/inkss/fontawesome@5.15.3/css/all.min.css" rel="stylesheet">
-  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
-  
-  
-    <script>
-        var themeModelId = '';
-        if (themeModelId) {
-            localStorage.setItem('modelId', themeModelId);
-        }
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js"></script>
-    <script>
-        var live2dOpen = eval('true') || false;
-        if (!live2dOpen) {
-            localStorage.setItem('waifu-display', 1609323474481);
-        }
-    </script>
-  
-  
-  
-<link rel="stylesheet" href="/css/animate.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-<link rel="stylesheet" href="/css/style.css">
-
-  
-  
-    
-<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
-
-  
-  
-    
-<link rel="stylesheet" href="/js/shareJs/share.min.css">
-
-  
-  <style>
-        @media (max-width: 992px) {
-            #waifu {
-                display: none;
-            }
-        }
-    </style>
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-
-    
-
-    <!-- import link -->
-    
-        
-            
-        
-            
-        
-    
-    <!-- import script -->
-    
-        
-            
-        
-            
-        
-    
-
-<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
-  
-  <!-- 依赖于jquery和vue -->
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-
-  
-
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
-
-  
-  
-  <body>
-    <!-- 预加载动画 -->
-    <!-- 页面预加载动画 -->
-
-<div id='loader'>
-  <link rel="stylesheet" href="/js/loaded/index.css" >
-  <div class="loading-left-bg"></div>
-  <div class="loading-right-bg"></div>
-  <div class="spinner-box">
-    <div class="configure-border-1">
-      <div class="configure-core"></div>
-    </div>
-    <div class="configure-border-2">
-      <div class="configure-core"></div>
-    </div>
-    <div class="loading-word">加载中...</div>
-  </div>
-</div>
-
-<script>
-  var endLoading = function () {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loader').classList.add("loading");
-  }
-  window.addEventListener('DOMContentLoaded',endLoading);
-  
-</script>
-
-    
-    <!-- 判断是否为暗黑风格 -->
-    <!-- 判断是否为黑夜模式 -->
-<script>
-  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
-
-  if (isDark) {
-    $(document.body).addClass('darkModel');
-  }
-</script>
-
-    <!-- 需要在上面加载的js -->
-    <script>
-  function loadScript(src, cb) {
-    return new Promise(resolve => {
-      setTimeout(function () {
-        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        if (cb) {
-          if (JSON.stringify(cb)) {
-            for (let p in cb) {
-              if (p == "onload") {
-                script[p] = () => {
-                  cb[p]()
-                  resolve()
-                }
-              } else {
-                script[p] = cb[p]
-                script.onload = resolve
-              }
-            }
-          } else {
-            script.onload = () => {
-              cb()
-              resolve()
-            };
-          }
-        } else {
-          script.onload = resolve
-        }
-        script.setAttribute("src", src);
-        HEAD.appendChild(script);
-      });
-    });
-  }
-
-  //https://github.com/filamentgroup/loadCSS
-  var loadCSS = function (href, before, media, attributes) {
-    return new Promise(resolve => {
-      setTimeout(function () {
-        var link = document.createElement('link');
-        link.rel = "stylesheet";
-        link.href = src;
-        link.onload = resolve;
-        document.getElementsByTagName("head")[0].appendChild(link);
-      });
-    });
-  };
-
-</script> 
-
-<!-- 轮播图所需要的js -->
-<script src="/js/swiper/swiper.min.js"></script>
-<script src="/js/swiper/vue-awesome-swiper.js"></script>
-<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
-
-<script type="text/javascript">
-  Vue.use(window.VueAwesomeSwiper)
-</script>
+  <meta name="keywords" content="Git" />
 
 
-  <script src="/js/vue-typed-js/index.js"></script>
+<link rel="canonical" href="https://cheewingtan.github.io/2020/06/15/git/">
 
 
-<!-- 首页的公告滚动插件的js需要重新加载 -->
-<script src="/js/vue-seamless-scroll/index.js"></script>
 
-<!-- 打字机效果js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-
-
-    <div id="safearea">
-      <main class="main" id="pjax-container">
-        <!-- 头部导航 -->
-        
-<header class="header   " 
-  id="navHeader"
-  style="position: fixed;
-  left: 0; top: 0; z-index: 10;width: 100%;"
->
-  <div class="header-content">
-    <div class="bars">
-      <div id="appDrawer" class="sidebar-image">
-  <div class="drawer-box-icon">
-    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
-  </div>
-  
-  <transition name="fade">
-    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
-    </div>
-  </transition>
-  <div class="drawer-box" :class="{'active': visible}">
-    <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
-      <h3 class="drawer-box-head_title">志荣</h3>
-      <h5 class="drawer-box-head_desc"></h5>
-    </div>
-    
-    <div class="drawer-box-content">
-      <ul class="drawer-box-content_menu">
-        
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                  
-                  <span class="name">首页</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/archives" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-archive" aria-hidden="true"></i>
-                  
-                  <span class="name">归档</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/tags" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-tags" aria-hidden="true"></i>
-                  
-                  <span class="name">标签</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/categories" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-bookmark" aria-hidden="true"></i>
-                  
-                  <span class="name">分类</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/about" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-user" aria-hidden="true"></i>
-                  
-                  <span class="name">关于</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/friends" class="drawer-menu-item-link">
-                  
-                  <span class="name">友情链接</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="javascript:;" class="drawer-menu-item-link has-children" @click="openOrCloseMenu(6)">
-                  <span>
-                    
-                      <i class="fas fa-link"></i>
-                    
-                    <span class="name">更多</span>
-                  </span>
-                  <i class="fas fa-chevron-left arrow " :class="{'icon-rotate': isOpen(6)}" aria-hidden="true"></i>
-                </a>
-                <ul class="drawer-sub-menu" v-if="isOpen(6)">
-                  
-                  <li>
-                    <a href="/gallery">
-                      
-                      <i class="fas fa-music" style="margin-top: -20px;"></i>
-                      
-                      <span>图库</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/huoban">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>友情连接</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/me">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>关于我</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" rel="noopener" href="http://baidu.com">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>百度</span>
-                    </a>
-                  </li>
-                  
-                </ul>
-              
-            </li>
-          
-        
-        
-          <li class="drawer-box-content_item">
-            <a target="_blank" rel="noopener" href="https://github.com/Cheewingtan/Cheewingtan.github.io">
-              <i class="fas fa-github" aria-hidden="true"></i>
-              <span>Github</span>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appDrawer',
-    data: {
-      visible: false,
-      top: 0,
-      openArr: [],
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-      isOpen(index) {
-        if (this.openArr.includes(index)) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      openOrCloseMenu(curIndex) {
-        const index = this.openArr.indexOf(curIndex);
-        if (index !== -1) {
-          this.openArr.splice(index, 1);
-        } else {
-          this.openArr.push(curIndex);
-        }
-      },
-      showDialogDrawer() {
-        this.visible = true;
-        // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop()
-        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
-      },
-      cancelDialogDrawer() {
-        this.visible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      }
-    },
-    created() {}
-  })
-</script>
-
-    </div>
-    <div class="blog-title" id="author-avatar">
-      
-        <div class="avatar">
-          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="logo">
-        </div>
-      
-      <a href="/" class="logo">志荣</a>
-    </div>
-    <nav class="navbar">
-      <ul class="menu">
-        
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/" class="menu-item-link" title="首页">
-                  
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                  
-                  <span class="name">首页</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/archives" class="menu-item-link" title="归档">
-                  
-                    <i class="fas fa-archive" aria-hidden="true"></i>
-                  
-                  <span class="name">归档</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/tags" class="menu-item-link" title="标签">
-                  
-                    <i class="fas fa-tags" aria-hidden="true"></i>
-                  
-                  <span class="name">标签</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/categories" class="menu-item-link" title="分类">
-                  
-                    <i class="fas fa-bookmark" aria-hidden="true"></i>
-                  
-                  <span class="name">分类</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/about" class="menu-item-link" title="关于">
-                  
-                    <i class="fas fa-user" aria-hidden="true"></i>
-                  
-                  <span class="name">关于</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/friends" class="menu-item-link" title="友情链接">
-                  
-                  <span class="name">友情链接</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="javascript:;" class="menu-item-link" title="更多">
-                  
-                    <i class="fas fa-link"></i>
-                  
-                  <span class="name">更多</span>
-                  <i class="fas fa-chevron-down arrow" aria-hidden="true"></i>
-                </a>
-                <ul class="sub-menu">
-                  
-                  <li>
-                    <a href="/gallery">
-                      
-                      <i class="fas fa-music" style="margin-top: -20px;"></i>
-                      
-                      <span>图库</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/huoban">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>友情连接</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/me">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>关于我</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a target="_blank" rel="noopener" href="http://baidu.com">
-                      
-                      <i class="fas fa-film" style="margin-top: -20px;"></i>
-                      
-                      <span>百度</span>
-                    </a>
-                  </li>
-                  
-                </ul>
-              
-            </li>
-          
-        
-      </ul>
-      
-      
-        <div id="appSearch">
-  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
-  <transition name="fade">
-    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
-      <div class="message-box animated bounceInDown">
-        <h2>
-          <span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <span class="title">本地搜索</span>
-          </span>
-          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
-        </h2>
-        <form class="site-search-form">
-          <input type="text"
-            placeholder="请输入关键字"
-            id="local-search-input" 
-            @click="getSearchFile()"
-            class="st-search-input"
-            v-model="searchInput"
-          />
-        </form>
-        <div class="result-wrapper">
-          <div id="local-search-result" class="local-search-result-cls"></div>
-        </div>
+  <title>
+git - Tech |
+Milchstraße = 星霜荏苒 = 有志竞成，荣幸之志</title>
+<meta name="generator" content="Hexo 5.4.2"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
       </div>
     </div>
-  </transition>
-</div>
-<script src="/js/local_search.js"></script>
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appSearch',
-    data: {
-      dialogVisible: false,
-      searchInput: '',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-      window.addEventListener('pjax:complete', () => {
-        this.cancelDialogVisible();
-      })
-    },
-    methods: {
-      showDialog() {
-        this.dialogVisible = true;
-        // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop()
-        body.style.cssText = 'overflow: hidden;';
-      },
-      getSearchFile() {
-        if (!this.searchInput) {
-          getSearchFile("/search.xml");
-        }
-      },
-      cancelDialogVisible() {
-        this.dialogVisible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-    },
-    created() {}
-  })
-</script>
-<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
-<!-- 下面是搜索基本写法 -->
-<!-- <script type="text/javascript" id="local.search.active">
-  var inputArea = document.querySelector("#local-search-input");
-  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
-  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-</script> -->
-
-      
-
-    </nav>
   </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">git
+  </h1>
   
-    <a target="_blank" rel="noopener" href="https://github.com/Cheewingtan/Cheewingtan.github.io" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-  
-  
-</header>
-        <!-- 内容区域 -->
-        
- <!-- prismjs 代码高亮 -->
- 
+<div class="meta">
+  <span class="item" title="创建时间：2020-06-15 10:45:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-06-15T10:45:13+08:00">2020-06-15</time>
+  </span>
+</div>
 
 
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
-
-
-  <!-- 文章详情页顶部图片和标题 -->
-
-
-
-
-<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/10.jpg')">
-  <div class="post-detail-header-mask"></div>
-  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
-  
-  <div class="post-detail-header_info-box">
-    <div class="title-box">
-      <span class="title">
-        git
-      </span>
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
     </div>
-    
-    
-      
-        <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2020-06-15 |
-        </span>
-      
-
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> 分类：
-          
-            <a href="/categories/Tech/" class="post-detail-header_category">
-              Tech
-            </a>
-          
-        </span>
-      
-
-      
-    
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Milchstraße</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
   </div>
-  
-  
-    <script src="/js/bubble/bubble.js"></script>
-  
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="分类于 Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://cheewingtan.github.io/2020/06/15/git/">
 
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="小志">
+    <meta itemprop="description" content="有志竞成，荣幸之志, ">
+  </span>
 
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="星霜荏苒">
+  </span>
 
+  <div class="body md" itemprop="articleBody">
+    
 
-<div class="row justify-position" 
-  style="padding-top: 0px;">
-  <div class="main-content">
-    <article class="post post-detail">
-      <div class="post-content">
-        <h1 id="Git全集"><a href="#Git全集" class="headerlink" title="Git全集"></a>Git全集</h1><p><img src="https://user-gold-cdn.xitu.io/2020/6/15/172b581c8e8c9dff?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload placeholder" data-srcset="https://user-gold-cdn.xitu.io/2020/6/15/172b581c8e8c9dff?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="常用命令速查表"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/6/15/172b390eab77fcbd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload placeholder" data-srcset="https://user-gold-cdn.xitu.io/2020/6/15/172b390eab77fcbd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="Git流程图"></p>
+    <h1 id="git全集"><a class="markdownIt-Anchor" href="#git全集">#</a> Git 全集</h1>
+<p><img data-src="https://user-gold-cdn.xitu.io/2020/6/15/172b581c8e8c9dff?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="常用命令速查表"></p>
+<p><img data-src="https://user-gold-cdn.xitu.io/2020/6/15/172b390eab77fcbd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="Git流程图"></p>
 <ul>
-<li>Workspace:工作区</li>
-<li>Index/Stage:暂存区</li>
-<li>Repository:本地仓库</li>
-<li>Remote:远程仓库</li>
+<li>Workspace: 工作区</li>
+<li>Index/Stage: 暂存区</li>
+<li>Repository: 本地仓库</li>
+<li>Remote: 远程仓库</li>
 </ul>
-<h2 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 配置全局用户</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> user.name </span><span class="token string">"用户名"</span> 
-<span class="token command">$ git config<span class="token parameter"> --global</span> user.email </span><span class="token string">"git账号"</span>
-<span class="token comment" spellcheck="true"># 配置别名</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.co checkout</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.ss status</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.cm commit</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.br branch</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.rg reflog</span>
-<span class="token comment" spellcheck="true"># 这里只是美化 log 的输出，实际使用时可以在 git lg 后面加命令参数，如： git lg -10 显示最近10条提交</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span> alias.lg </span><span class="token string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit"</span>
-<span class="token comment" spellcheck="true"># 删除全局配置</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span><span class="token parameter"> --unset</span> alias.xxx</span>
-<span class="token command">$ git config<span class="token parameter"> --global</span><span class="token parameter"> --unset</span> user.xxx</span>
+<h2 id="配置git"><a class="markdownIt-Anchor" href="#配置git">#</a> 配置 Git</h2>
+<pre class=" language-language-git"><code class="language-language-git"># 配置全局用户
+$ git config --global user.name "用户名" 
+$ git config --global user.email "git账号"
+# 配置别名
+$ git config --global alias.co checkout
+$ git config --global alias.ss status
+$ git config --global alias.cm commit
+$ git config --global alias.br branch
+$ git config --global alias.rg reflog
+# 这里只是美化 log 的输出，实际使用时可以在 git lg 后面加命令参数，如： git lg -10 显示最近10条提交
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# 删除全局配置
+$ git config --global --unset alias.xxx
+$ git config --global --unset user.xxx
+
 </code></pre>
-<h2 id="查看Git信息"><a href="#查看Git信息" class="headerlink" title="查看Git信息"></a>查看Git信息</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看系统配置</span>
-<span class="token command">$ git config<span class="token parameter"> --list</span></span>
-<span class="token comment" spellcheck="true"># 查看用户配置</span>
+<h2 id="查看git信息"><a class="markdownIt-Anchor" href="#查看git信息">#</a> 查看 Git 信息</h2>
+<pre class=" language-language-git"><code class="language-language-git"># 查看系统配置
+$ git config --list
+# 查看用户配置
 $ cat ~/.gitconfig 
-<span class="token comment" spellcheck="true"># 查看当前项目的 git 配置</span>
+# 查看当前项目的 git 配置
 $ cat .git/config
-<span class="token comment" spellcheck="true"># 查看暂存区的文件</span>
-<span class="token command">$ git ls-files</span>
-<span class="token comment" spellcheck="true"># 查看本地 git 命令历史</span>
-<span class="token command">$ git reflog</span>
-<span class="token comment" spellcheck="true"># 查看所有 git 命令</span>
-<span class="token command">$ git<span class="token parameter"> --help</span><span class="token parameter"> -a</span> </span>
-<span class="token comment" spellcheck="true"># 查看当前 HEAD 指向</span>
+# 查看暂存区的文件
+$ git ls-files
+# 查看本地 git 命令历史
+$ git reflog
+# 查看所有 git 命令
+$ git --help -a 
+# 查看当前 HEAD 指向
 $ cat .git/HEAD
 
-<span class="token comment" spellcheck="true"># git 中 D 向下翻一行  F 向下翻页  B 向上翻页  Q 退出</span>
-<span class="token comment" spellcheck="true"># 查看提交历史</span>
-<span class="token command">$ git log<span class="token parameter"> --oneline</span>  </span>
-          --grep=<span class="token string">"关键字"</span>
+# git 中 D 向下翻一行  F 向下翻页  B 向上翻页  Q 退出
+# 查看提交历史
+$ git log --oneline  
+          --grep="关键字"
           --graph 
           --all      
-          --author <span class="token string">"username"</span>     
+          --author "username"     
           --reverse 
           -num
           -p
-          --before=  1  day/1  week/1  <span class="token string">"2019-06-06"</span> 
-          --after= <span class="token string">"2019-06-06"</span>
+          --before=  1  day/1  week/1  "2019-06-06" 
+          --after= "2019-06-06"
           --stat 
           --abbrev-commit 
-          --pretty=format:<span class="token string">"xxx"</span>
+          --pretty=format:"xxx"
+          
+# oneline -> 将日志记录一行一行的显示
+# grep="关键字" -> 查找日志记录中(commit提交时的注释)与关键字有关的记录
+# graph -> 记录图形化显示 ！！！    
+# all -> 将所有记录都详细的显示出来
+# author "username" -> 查找这个作者提交的记录
+# reverse -> commit 提交记录顺序翻转      
+# before -> 查找规定的时间(如:1天/1周)之前的记录   
+# num -> git log -10 显示最近10次提交 ！！！    
+# stat -> 显示每次更新的文件修改统计信息，会列出具体文件列表 ！！！
+# abbrev-commit -> 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符 ！！！
+# pretty=format:"xxx" ->  可以定制要显示的记录格式 ！！！
+# p -> 显示每次提交所引入的差异（按 补丁 的格式输出）！！！
 
-<span class="token comment" spellcheck="true"># oneline -> 将日志记录一行一行的显示</span>
-<span class="token comment" spellcheck="true"># grep="关键字" -> 查找日志记录中(commit提交时的注释)与关键字有关的记录</span>
-<span class="token comment" spellcheck="true"># graph -> 记录图形化显示 ！！！    </span>
-<span class="token comment" spellcheck="true"># all -> 将所有记录都详细的显示出来</span>
-<span class="token comment" spellcheck="true"># author "username" -> 查找这个作者提交的记录</span>
-<span class="token comment" spellcheck="true"># reverse -> commit 提交记录顺序翻转      </span>
-<span class="token comment" spellcheck="true"># before -> 查找规定的时间(如:1天/1周)之前的记录   </span>
-<span class="token comment" spellcheck="true"># num -> git log -10 显示最近10次提交 ！！！    </span>
-<span class="token comment" spellcheck="true"># stat -> 显示每次更新的文件修改统计信息，会列出具体文件列表 ！！！</span>
-<span class="token comment" spellcheck="true"># abbrev-commit -> 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符 ！！！</span>
-<span class="token comment" spellcheck="true"># pretty=format:"xxx" ->  可以定制要显示的记录格式 ！！！</span>
-<span class="token comment" spellcheck="true"># p -> 显示每次提交所引入的差异（按 补丁 的格式输出）！！！</span>
 </code></pre>
-<h3 id="Git-reflog"><a href="#Git-reflog" class="headerlink" title="Git reflog"></a>Git reflog</h3><p>-显示的是一个 HEAD 指向发生改变的时间列表。在你切换分支、用 git commit 进行提交、以及用 git reset 撤销 commit 时，HEAD 指向会改变，但当你进行 git checkout – <filename> 撤销或者 git stash  存储文件等操作时，HEAD 并不会改变，这些修改从来没有被提交过，因此 reflog 也无法帮助我们恢复它们。<br>-git reflog 不会永远保持，Git 会定期清理那些 “用不到的” 对象，不要指望几个月前的提交还一直在那里。</filename></p>
-<h3 id="Git-log-点线图"><a href="#Git-log-点线图" class="headerlink" title="Git log 点线图"></a>Git log 点线图</h3><p>-git 中一条分支就是一个指针，新建一条分支就是基于当前指针新建一个指针<br>-切换至某个分支 ，就是将 HEAD 指向某条分支（指针）<br>-切换至某个 commit ，就是将 HEAD 指向某个 commit</p>
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区的状态</span>
-<span class="token command">$ git status </span>
-<span class="token comment" spellcheck="true"># 将工作区的文件提交到暂存区</span>
-<span class="token command">$ git add .  </span>
-<span class="token comment" spellcheck="true"># 提交到本地仓库</span>
-<span class="token command">$ git commit<span class="token parameter"> -m</span> </span><span class="token string">"本次提交说明"</span>
-<span class="token comment" spellcheck="true"># add和commit的合并，便捷写法（未追踪的文件无法直接提交到暂存区/本地仓库）</span>
-<span class="token command">$ git commit<span class="token parameter"> -am</span> </span><span class="token string">"本次提交说明"</span>  
-<span class="token comment" spellcheck="true"># 将本地分支和远程分支进行关联</span>
-<span class="token command">$ git push<span class="token parameter"> -u</span> origin branchName </span>
-<span class="token comment" spellcheck="true"># 将本地仓库的文件推送到远程分支</span>
-<span class="token command">$ git push</span>
-<span class="token comment" spellcheck="true"># 拉取远程分支的代码</span>
-<span class="token command">$ git pull origin branchName </span>
-<span class="token comment" spellcheck="true"># 合并分支</span>
-<span class="token command">$ git merge branchName </span>
-<span class="token comment" spellcheck="true"># 查看本地拥有哪些分支</span>
-<span class="token command">$ git branch</span>
-<span class="token comment" spellcheck="true"># 查看所有分支（包括远程分支和本地分支）</span>
-<span class="token command">$ git branch<span class="token parameter"> -a</span> </span>
-<span class="token comment" spellcheck="true"># 切换分支</span>
-<span class="token command">$ git checkout branchName </span>
-<span class="token comment" spellcheck="true"># 临时将工作区文件的修改保存至堆栈中</span>
-<span class="token command">$ git stash</span>
-<span class="token comment" spellcheck="true"># 将之前保存至堆栈中的文件取出来</span>
-<span class="token command">$ git stash pop</span>
-</code></pre>
-<h2 id="Git-常用命令详解"><a href="#Git-常用命令详解" class="headerlink" title="Git 常用命令详解"></a>Git 常用命令详解</h2><h3 id="add"><a href="#add" class="headerlink" title="add"></a>add</h3><p> 将工作区的文件添加到暂存区</p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 添加指定文件到暂存区（追踪新增的指定文件）</span>
-<span class="token command">$ git add [file1] [file2] ...</span>
-<span class="token comment" spellcheck="true"># 添加指定目录到暂存区，包括子目录</span>
-<span class="token command">$ git add [dir]</span>
-<span class="token comment" spellcheck="true"># 添加当前目录的所有文件到暂存区（追踪所有新增的文件）</span>
-<span class="token command">$ git add .</span>
-<span class="token comment" spellcheck="true"># 删除工作区/暂存区的文件</span>
-<span class="token command">$ git rm [file1] [file2] ...</span>
-<span class="token comment" spellcheck="true"># 停止追踪指定文件，但该文件会保留在工作区</span>
-<span class="token command">$ git rm<span class="token parameter"> --cached</span> [file]</span>
-<span class="token comment" spellcheck="true"># 改名工作区/暂存区的文件</span>
-<span class="token command">$ git mv [file-original] [file-renamed]</span>
+<h3 id="git-reflog"><a class="markdownIt-Anchor" href="#git-reflog">#</a> Git reflog</h3>
+<p>- 显示的是一个 HEAD 指向发生改变的时间列表。在你切换分支、用 git commit 进行提交、以及用 git reset 撤销 commit 时，HEAD 指向会改变，但当你进行 git checkout – <filename> 撤销或者 git stash  存储文件等操作时，HEAD 并不会改变，这些修改从来没有被提交过，因此 reflog 也无法帮助我们恢复它们。<br>
+-git reflog 不会永远保持，Git 会定期清理那些 “用不到的” 对象，不要指望几个月前的提交还一直在那里。</filename></p>
+<h3 id="git-log-点线图"><a class="markdownIt-Anchor" href="#git-log-点线图">#</a> Git log 点线图</h3>
+<p>-git 中一条分支就是一个指针，新建一条分支就是基于当前指针新建一个指针<br>
+ - 切换至某个分支 ，就是将 HEAD 指向某条分支（指针）<br>
+- 切换至某个 commit ，就是将 HEAD 指向某个 commit</p>
+<h2 id="git常用命令"><a class="markdownIt-Anchor" href="#git常用命令">#</a> Git 常用命令</h2>
+<pre class=" language-language-git"><code class="language-language-git"># 查看工作区和暂存区的状态
+$ git status 
+# 将工作区的文件提交到暂存区
+$ git add .  
+# 提交到本地仓库
+$ git commit -m "本次提交说明"
+# add和commit的合并，便捷写法（未追踪的文件无法直接提交到暂存区/本地仓库）
+$ git commit -am "本次提交说明"  
+# 将本地分支和远程分支进行关联
+$ git push -u origin branchName 
+# 将本地仓库的文件推送到远程分支
+$ git push
+# 拉取远程分支的代码
+$ git pull origin branchName 
+# 合并分支
+$ git merge branchName 
+# 查看本地拥有哪些分支
+$ git branch
+# 查看所有分支（包括远程分支和本地分支）
+$ git branch -a 
+# 切换分支
+$ git checkout branchName 
+# 临时将工作区文件的修改保存至堆栈中
+$ git stash
+# 将之前保存至堆栈中的文件取出来
+$ git stash pop
 
-<span class="token comment" spellcheck="true"># Git 2.0 以下版本</span>
-<span class="token comment" spellcheck="true">#只作用于文件的新增和修改</span>
-<span class="token command">$ git add .  </span>
-<span class="token comment" spellcheck="true">#只作用于文件的修改和删除</span>
+</code></pre>
+<h2 id="git-常用命令详解"><a class="markdownIt-Anchor" href="#git-常用命令详解">#</a> Git 常用命令详解</h2>
+<h3 id="add"><a class="markdownIt-Anchor" href="#add">#</a> add</h3>
+<p>将工作区的文件添加到暂存区</p>
+<pre class=" language-language-git"><code class="language-language-git"># 添加指定文件到暂存区（追踪新增的指定文件）
+$ git add [file1] [file2] ...
+# 添加指定目录到暂存区，包括子目录
+$ git add [dir]
+# 添加当前目录的所有文件到暂存区（追踪所有新增的文件）
+$ git add .
+# 删除工作区/暂存区的文件
+$ git rm [file1] [file2] ...
+# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+# 改名工作区/暂存区的文件
+$ git mv [file-original] [file-renamed]
+
+# Git 2.0 以下版本
+#只作用于文件的新增和修改
+$ git add .  
+#只作用于文件的修改和删除
 $ gti add -u
-<span class="token comment" spellcheck="true">#作用于文件的增删改</span>
-<span class="token command">$ git add<span class="token parameter"> -A</span> </span>
+#作用于文件的增删改
+$ git add -A 
 
-<span class="token comment" spellcheck="true"># Git 2.0 版本</span>
-<span class="token command">$ git add . 等价于 $ git add<span class="token parameter"> -A</span> </span>
+# Git 2.0 版本
+$ git add . 等价于 $ git add -A 
+
 </code></pre>
 <ul>
-<li>git add . ：操作的对象是“当前目录”所有文件变更，”.” 表示当前目录。会监控工作区的状态树，使用它会把工作区的所有变化提交到暂存区，包括文件内容修改（modified）以及新文件（new），但不包括被删除的文件。</li>
-<li>git add -u ：操作的对象是整个工作区已经跟踪的文件变更，无论当前位于哪个目录下。仅监控已经被 add 的文件（即 tracked file），它会将被修改的文件（包括文件删除）提交到暂存区。git add -u 不会提交新文件（untracked file）。（git add –update 的缩写）</li>
-<li>git add -A ：操作的对象是“整个工作区”所有文件的变更，无论当前位于哪个目录下。是上面两个功能的合集（git add –all 的缩写）。</li>
+<li>git add . ：操作的对象是 “当前目录” 所有文件变更，"." 表示当前目录。会监控工作区的状态树，使用它会把工作区的所有变化提交到暂存区，包括文件内容修改（modified）以及新文件（new），但不包括被删除的文件。</li>
+<li>git add -u ：操作的对象是整个工作区已经跟踪的文件变更，无论当前位于哪个目录下。仅监控已经被 add 的文件（即 tracked file），它会将被修改的文件（包括文件删除）提交到暂存区。git add -u 不会提交新文件（untracked file）。（git add --update 的缩写）</li>
+<li>git add -A ：操作的对象是 “整个工作区” 所有文件的变更，无论当前位于哪个目录下。是上面两个功能的合集（git add --all 的缩写）。</li>
 </ul>
-<h3 id="Status"><a href="#Status" class="headerlink" title="Status"></a>Status</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区的状态</span>
-<span class="token command">$ git status </span></code></pre>
+<h3 id="status"><a class="markdownIt-Anchor" href="#status">#</a> Status</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 查看工作区和暂存区的状态
+$ git status 
+</code></pre>
 <p>##Commit</p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 将暂存区的文件提交到本地仓库并添加提交说明</span>
-<span class="token command">$ git commit<span class="token parameter"> -m</span> </span><span class="token string">"本次提交的说明"</span>   
+<pre class=" language-language-git"><code class="language-language-git"># 将暂存区的文件提交到本地仓库并添加提交说明
+$ git commit -m "本次提交的说明"   
 
-<span class="token comment" spellcheck="true"># add 和 commit 的合并，便捷写法</span>
-<span class="token comment" spellcheck="true"># 和 git add -u 命令一样，未跟踪的文件是无法提交上去的</span>
-<span class="token command">$ git commit<span class="token parameter"> -am</span> </span><span class="token string">"本次提交的说明"</span>  
+# add 和 commit 的合并，便捷写法
+# 和 git add -u 命令一样，未跟踪的文件是无法提交上去的
+$ git commit -am "本次提交的说明"  
 
-<span class="token comment" spellcheck="true"># 跳过验证继续提交</span>
-<span class="token command">$ git commit<span class="token parameter"> --no</span>-verify</span>
-<span class="token command">$ git commit<span class="token parameter"> -n</span></span>
+# 跳过验证继续提交
+$ git commit --no-verify
+$ git commit -n
 
-<span class="token comment" spellcheck="true"># 编辑器会弹出上一次提交的信息，可以在这里修改提交信息</span>
-<span class="token command">$ git commit<span class="token parameter"> --amend</span></span>
-<span class="token comment" spellcheck="true"># 修复提交，同时修改提交信息</span>
-<span class="token command">$ git commit<span class="token parameter"> --amend</span><span class="token parameter"> -m</span> </span><span class="token string">"本次提交的说明"</span>
-<span class="token comment" spellcheck="true"># 加入 --no-edit 标记会修复提交但不修改提交信息，编辑器不会弹出上一次提交的信息</span>
-<span class="token command">$ git commit<span class="token parameter"> --amend</span><span class="token parameter"> --no</span>-edit</span></code></pre>
+# 编辑器会弹出上一次提交的信息，可以在这里修改提交信息
+$ git commit --amend
+# 修复提交，同时修改提交信息
+$ git commit --amend -m "本次提交的说明"
+# 加入 --no-edit 标记会修复提交但不修改提交信息，编辑器不会弹出上一次提交的信息
+$ git commit --amend --no-edit
+</code></pre>
 <ul>
-<li>git commit –amend 既可以修改上次提交的文件内容，也可以修改上次提交的说明。会用一个新的 commit 更新并替换最近一次提交的 commit 。如果暂存区有内容，这个新的 commit 会把任何修改内容和上一个 commit 的内容结合起来。如果暂存区没有内容，那么这个操作就只会把上次的 commit 消息重写一遍。永远不要修复一个已经推送到公共仓库中的提交，会拒绝推送到仓库</li>
+<li>git commit --amend 既可以修改上次提交的文件内容，也可以修改上次提交的说明。会用一个新的 commit 更新并替换最近一次提交的 commit 。如果暂存区有内容，这个新的 commit 会把任何修改内容和上一个 commit 的内容结合起来。如果暂存区没有内容，那么这个操作就只会把上次的 commit 消息重写一遍。永远不要修复一个已经推送到公共仓库中的提交，会拒绝推送到仓库</li>
 </ul>
-<h3 id="push-amp-pull"><a href="#push-amp-pull" class="headerlink" title="push &amp; pull"></a>push &amp; pull</h3><p>分支推送顺序的写法是 &lt;来源地&gt;:&lt;目的地&gt;</p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 将本地仓库的文件推送到远程分支</span>
-<span class="token comment" spellcheck="true"># 如果远程仓库没有这个分支，会新建一个同名的远程分支</span>
-<span class="token comment" spellcheck="true"># 如果省略远程分支名，则表示两者同名</span>
-<span class="token command">$ git push &lt;远程主机名> &lt;本地分支名>:&lt;远程分支名></span>
-<span class="token command">$ git push origin branchname  </span>
+<h3 id="push-pull"><a class="markdownIt-Anchor" href="#push-pull">#</a> push &amp; pull</h3>
+<p>分支推送顺序的写法是 &lt;来源地&gt;:&lt; 目的地 &gt;</p>
+<pre class=" language-language-git"><code class="language-language-git"># 将本地仓库的文件推送到远程分支
+# 如果远程仓库没有这个分支，会新建一个同名的远程分支
+# 如果省略远程分支名，则表示两者同名
+$ git push <远程主机名> <本地分支名>:<远程分支名>
+$ git push origin branchname  
 
-<span class="token comment" spellcheck="true"># 如果省略本地分支名，则表示删除指定的远程分支</span>
-<span class="token comment" spellcheck="true"># 因为这等同于推送一个空的本地分支到远程分支。</span>
-<span class="token command">$ git push origin :master</span>
-<span class="token comment" spellcheck="true"># 等同于</span>
-<span class="token command">$ git push origin<span class="token parameter"> --delete</span> master</span>
+# 如果省略本地分支名，则表示删除指定的远程分支
+# 因为这等同于推送一个空的本地分支到远程分支。
+$ git push origin :master
+# 等同于
+$ git push origin --delete master
 
-<span class="token comment" spellcheck="true"># 建立当前分支和远程分支的追踪关系</span>
-<span class="token command">$ git push<span class="token parameter"> -u</span> origin master</span>
-<span class="token comment" spellcheck="true"># 如果当前分支与远程分支之间存在追踪关系</span>
-<span class="token comment" spellcheck="true"># 则可以省略分支和 -u </span>
-<span class="token command">$ git push</span>
+# 建立当前分支和远程分支的追踪关系
+$ git push -u origin master
+# 如果当前分支与远程分支之间存在追踪关系
+# 则可以省略分支和 -u 
+$ git push
 
-<span class="token comment" spellcheck="true"># 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机</span>
-<span class="token command">$ git push<span class="token parameter"> --all</span> origin</span>
+# 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机
+$ git push --all origin
 
-<span class="token comment" spellcheck="true"># 拉取所有远程分支到本地镜像仓库中</span>
-<span class="token command">$ git pull</span>
-<span class="token comment" spellcheck="true"># 拉取并合并项目其他人员的一个分支 </span>
-<span class="token command">$ git pull origin branchname  </span>
-<span class="token comment" spellcheck="true"># 等同于 fetch + merge</span>
-<span class="token command">$ git fetch origin branchName</span>
-<span class="token command">$ git merge origin/branchName</span>
+# 拉取所有远程分支到本地镜像仓库中
+$ git pull
+# 拉取并合并项目其他人员的一个分支 
+$ git pull origin branchname  
+# 等同于 fetch + merge
+$ git fetch origin branchName
+$ git merge origin/branchName
 
-<span class="token comment" spellcheck="true"># 如果远程主机的版本比本地版本更新，推送时 Git 会报错，要求先在本地做 git pull 合并差异，</span>
-<span class="token comment" spellcheck="true"># 然后再推送到远程主机。这时，如果你一定要推送，可以使用 –-force 选项 </span>
-<span class="token comment" spellcheck="true"># （尽量避免使用）</span>
-<span class="token command">$ git push<span class="token parameter"> --force</span> origin | git push<span class="token parameter"> -f</span> origin</span></code></pre>
-<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看本地分支</span>
-<span class="token command">$ git branch | git branch<span class="token parameter"> -l</span> </span>
-<span class="token comment" spellcheck="true"># 查看远程分支</span>
-<span class="token command">$ git branch<span class="token parameter"> -r</span> </span>
-<span class="token comment" spellcheck="true"># 查看所有分支（本地分支+远程分支）</span>
-<span class="token command">$ git branch<span class="token parameter"> -a</span> </span>
-<span class="token comment" spellcheck="true"># 查看所有分支并带上最新的提交信息</span>
-<span class="token command">$ git branch<span class="token parameter"> -av</span> </span>
-<span class="token comment" spellcheck="true"># 查看本地分支对应的远程分支</span>
-<span class="token command">$ git branch<span class="token parameter"> -vv</span> </span>
+# 如果远程主机的版本比本地版本更新，推送时 Git 会报错，要求先在本地做 git pull 合并差异，
+# 然后再推送到远程主机。这时，如果你一定要推送，可以使用 –-force 选项 
+# （尽量避免使用）
+$ git push --force origin | git push -f origin
+</code></pre>
+<h3 id="branch"><a class="markdownIt-Anchor" href="#branch">#</a> branch</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 查看本地分支
+$ git branch | git branch -l 
+# 查看远程分支
+$ git branch -r 
+# 查看所有分支（本地分支+远程分支）
+$ git branch -a 
+# 查看所有分支并带上最新的提交信息
+$ git branch -av 
+# 查看本地分支对应的远程分支
+$ git branch -vv 
 
-<span class="token comment" spellcheck="true"># 新建分支</span>
-<span class="token comment" spellcheck="true"># 在别的分支下新建一个分支，新分支会复制当前分支的内容</span>
-<span class="token comment" spellcheck="true"># 注意：如果当前分支有修改，但是没有提交到仓库，此时修改的内容是不会被复制到新分支的</span>
-<span class="token command">$ git branch branchname </span>
-<span class="token comment" spellcheck="true"># 切换分支(切换分支时，本地工作区，仓库都会相应切换到对应分支的内容)</span>
-<span class="token command">$ git checkout branchname </span>
-<span class="token comment" spellcheck="true"># 创建一个 aaa 分支，并切换到该分支 （新建分支和切换分支的简写）</span>
-<span class="token command">$ git checkout<span class="token parameter"> -b</span> aaa </span>
-<span class="token comment" spellcheck="true"># 可以看做是基于 master 分支创建一个 aaa 分支，并切换到该分支</span>
-<span class="token command">$ git checkout<span class="token parameter"> -b</span> aaa master</span>
+# 新建分支
+# 在别的分支下新建一个分支，新分支会复制当前分支的内容
+# 注意：如果当前分支有修改，但是没有提交到仓库，此时修改的内容是不会被复制到新分支的
+$ git branch branchname 
+# 切换分支(切换分支时，本地工作区，仓库都会相应切换到对应分支的内容)
+$ git checkout branchname 
+# 创建一个 aaa 分支，并切换到该分支 （新建分支和切换分支的简写）
+$ git checkout -b aaa 
+# 可以看做是基于 master 分支创建一个 aaa 分支，并切换到该分支
+$ git checkout -b aaa master
 
-<span class="token comment" spellcheck="true"># 新建一条空分支（详情请看问题列表）</span>
-<span class="token command">$ git checkout<span class="token parameter"> --orphan</span> emptyBranchName</span>
-<span class="token command">$ git rm<span class="token parameter"> -rf</span> . </span>
+# 新建一条空分支（详情请看问题列表）
+$ git checkout --orphan emptyBranchName
+$ git rm -rf . 
 
-<span class="token comment" spellcheck="true"># 删除本地分支,会阻止删除包含未合并更改的分支</span>
-<span class="token command">$ git brnach<span class="token parameter"> -d</span> branchname </span>
-<span class="token comment" spellcheck="true"># 强制删除一个本地分支，即使包含未合并更改的分支</span>
-<span class="token command">$ git branch<span class="token parameter"> -D</span> branchname  </span>
-<span class="token comment" spellcheck="true"># 删除远程分支</span>
-<span class="token comment" spellcheck="true"># 推送一个空分支到远程分支，其实就相当于删除远程分支</span>
-<span class="token command">$ git push origin  :远程分支名</span>
-<span class="token comment" spellcheck="true"># 或者</span>
-<span class="token command">$ git push origin<span class="token parameter"> --delete</span> 远程分支名 </span>
+# 删除本地分支,会阻止删除包含未合并更改的分支
+$ git brnach -d branchname 
+# 强制删除一个本地分支，即使包含未合并更改的分支
+$ git branch -D branchname  
+# 删除远程分支
+# 推送一个空分支到远程分支，其实就相当于删除远程分支
+$ git push origin  :远程分支名
+# 或者
+$ git push origin --delete 远程分支名 
 
-<span class="token comment" spellcheck="true"># 修改当前分支名</span>
-<span class="token command">$ git branch<span class="token parameter"> -m</span> branchname </span></code></pre>
-<h3 id="merge三种常用合并方法"><a href="#merge三种常用合并方法" class="headerlink" title="merge三种常用合并方法"></a>merge三种常用合并方法</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 默认 fast-forward ，HEAD 指针直接指向被合并的分支</span>
-<span class="token command">$ git merge </span>
+# 修改当前分支名
+$ git branch -m branchname 
+</code></pre>
+<h3 id="merge三种常用合并方法"><a class="markdownIt-Anchor" href="#merge三种常用合并方法">#</a> merge 三种常用合并方法</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 默认 fast-forward ，HEAD 指针直接指向被合并的分支
+$ git merge 
 
-<span class="token comment" spellcheck="true"># 禁止快进式合并</span>
-<span class="token command">$ git merge<span class="token parameter"> --no</span>-ff </span>
+# 禁止快进式合并
+$ git merge --no-ff 
 
-<span class="token command">$ git merge<span class="token parameter"> --squash</span> </span></code></pre>
-<p><img src="https://user-gold-cdn.xitu.io/2020/6/15/172b390eac6f9586?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload placeholder" data-srcset="https://user-gold-cdn.xitu.io/2020/6/15/172b390eac6f9586?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="avatar"></p>
+$ git merge --squash 
+</code></pre>
+<p><img data-src="https://user-gold-cdn.xitu.io/2020/6/15/172b390eac6f9586?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="avatar"></p>
 <ul>
 <li>fast-forward：会在当前分支的提交历史中添加进被合并分支的提交历史（得先理解什么时候会发生快速合并，并不是每次 merge 都会发生快速合并）；</li>
 <li>–no-ff：会生成一个新的提交，让当前分支的提交历史不会那么乱；</li>
 <li>–squash：不会生成新的提交，会将被合并分支多次提交的内容直接存到工作区和暂存区，由开发者手动去提交，这样当前分支最终只会多出一条提交记录，不会掺杂被合并分支的提交历史</li>
 </ul>
-<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648">https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648</a></p>
-<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA">https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4a8f4af4e803">https://www.jianshu.com/p/4a8f4af4e803</a></p>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5a54386af265da3e3b7a6317#heading-9">https://juejin.im/post/5a54386af265da3e3b7a6317#heading-9</a></p>
-<h3 id="stach"><a href="#stach" class="headerlink" title="stach"></a>stach</h3><ul>
+<h3 id="rebase"><a class="markdownIt-Anchor" href="#rebase">#</a> rebase</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGlhb3h1ZWZlbmcuY29tL3dpa2kvODk2MDQzNDg4MDI5NjAwLzEyMTYyODk1Mjc4MjM2NDg=">https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyL0dpdC0lRTUlODglODYlRTYlOTQlQUYtJUU1JThGJTk4JUU1JTlGJUJB">https://git-scm.com/book/zh/v2/Git - 分支 - 变基</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80YThmNGFmNGU4MDM=">https://www.jianshu.com/p/4a8f4af4e803</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YTU0Mzg2YWYyNjVkYTNlM2I3YTYzMTcjaGVhZGluZy05">https://juejin.im/post/5a54386af265da3e3b7a6317#heading-9</span></p>
+<h3 id="stach"><a class="markdownIt-Anchor" href="#stach">#</a> stach</h3>
+<ul>
 <li>能够将所有未提交的修改保存至堆栈中，用于后续恢复当前工作区内容</li>
-<li>如果文件没有提交到暂存区（使用 git add . 追踪新的文件），使用该命令会提示 No local changes to save ，无法将修改保存到堆栈中<br>使用场景： 当你接到一个修复紧急 bug 的任务时候，一般都是先创建一个新的 bug 分支来修复它，然后合并，最后删除。但是，如果当前你正在开发功能中，短时间还无法完成，无法直接提交到仓库，这时候可以先把当前工作区的内容 git stash 一下，然后去修复 bug，修复后，再 git stash pop，恢复之前的工作内容。</li>
+<li>如果文件没有提交到暂存区（使用 git add . 追踪新的文件），使用该命令会提示 No local changes to save ，无法将修改保存到堆栈中<br>
+使用场景： 当你接到一个修复紧急 bug 的任务时候，一般都是先创建一个新的 bug 分支来修复它，然后合并，最后删除。但是，如果当前你正在开发功能中，短时间还无法完成，无法直接提交到仓库，这时候可以先把当前工作区的内容 git stash 一下，然后去修复 bug，修复后，再 git stash pop，恢复之前的工作内容。</li>
 </ul>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 将所有未提交的修改（提交到暂存区）保存至堆栈中</span>
-<span class="token command">$ git stash </span>
-<span class="token comment" spellcheck="true"># 给本次存储加个备注，以防时间久了忘了</span>
-<span class="token command">$ git stash save </span><span class="token string">"存储"</span>
-<span class="token comment" spellcheck="true"># 存储未追踪的文件</span>
-<span class="token command">$ git stash<span class="token parameter"> -u</span></span>
+<pre class=" language-language-git"><code class="language-language-git"># 将所有未提交的修改（提交到暂存区）保存至堆栈中
+$ git stash 
+# 给本次存储加个备注，以防时间久了忘了
+$ git stash save "存储"
+# 存储未追踪的文件
+$ git stash -u
 
-<span class="token comment" spellcheck="true"># 查看存储记录</span>
-<span class="token command">$ git stash list</span>
+# 查看存储记录
+$ git stash list
 
 在 Windows 上和 PowerShell 中，需要加双引号
-<span class="token comment" spellcheck="true"># 恢复后，stash 记录并不删除</span>
-<span class="token command">$ git stash apply </span><span class="token string">"stash@{index}"</span>
-<span class="token comment" spellcheck="true"># 恢复的同时把 stash 记录也删了</span>
-<span class="token command">$ git stash pop </span><span class="token string">"stash@{index}"</span>
-<span class="token comment" spellcheck="true"># 删除 stash 记录</span>
-<span class="token command">$ git stash drop </span><span class="token string">"stash@{index}"</span>
-<span class="token comment" spellcheck="true"># 删除所有存储的进度</span>
-<span class="token command">$ git stash clear</span>
-<span class="token comment" spellcheck="true"># 查看当前记录中修改了哪些文件</span>
-<span class="token command">$ git stash show </span><span class="token string">"stash@{index}"</span>
-<span class="token comment" spellcheck="true"># 查看当前记录中修改了哪些文件的内容</span>
-<span class="token command">$ git stash show<span class="token parameter"> -p</span> </span><span class="token string">"stash@{index}"</span> </code></pre>
-<h3 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看工作区和暂存区单个文件的对比</span>
-<span class="token command">$ git diff filename </span>
-<span class="token comment" spellcheck="true"># 查看工作区和暂存区所有文件的对比</span>
-<span class="token command">$ git diff </span>
-<span class="token comment" spellcheck="true"># 查看工作区和暂存区所有文件的对比，并显示出所有有差异的文件列表</span>
-<span class="token command">$ git diff<span class="token parameter"> --stat</span>   </span>
-<span class="token comment" spellcheck="true"># 注意：</span>
-<span class="token comment" spellcheck="true"># 1.你修改了某个文件，但是没有提交到暂存区，这时候会有对比的内容</span>
-<span class="token comment" spellcheck="true"># 一旦提交到暂存区，就不会有对比的内容(因为暂存区已经更新)</span>
-<span class="token comment" spellcheck="true"># 2.如果你新建了一个文件，但是没有提交到暂存区，这时候 diff 是没有结果的    </span>
+# 恢复后，stash 记录并不删除
+$ git stash apply "stash@{index}"
+# 恢复的同时把 stash 记录也删了
+$ git stash pop "stash@{index}"
+# 删除 stash 记录
+$ git stash drop "stash@{index}"
+# 删除所有存储的进度
+$ git stash clear
+# 查看当前记录中修改了哪些文件
+$ git stash show "stash@{index}"
+# 查看当前记录中修改了哪些文件的内容
+$ git stash show -p "stash@{index}" 
+</code></pre>
+<h3 id="diff"><a class="markdownIt-Anchor" href="#diff">#</a> diff</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 查看工作区和暂存区单个文件的对比
+$ git diff filename 
+# 查看工作区和暂存区所有文件的对比
+$ git diff 
+# 查看工作区和暂存区所有文件的对比，并显示出所有有差异的文件列表
+$ git diff --stat   
+# 注意：
+# 1.你修改了某个文件，但是没有提交到暂存区，这时候会有对比的内容
+# 一旦提交到暂存区，就不会有对比的内容(因为暂存区已经更新)
+# 2.如果你新建了一个文件，但是没有提交到暂存区，这时候 diff 是没有结果的	
 
-<span class="token comment" spellcheck="true"># 查看暂存区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比</span>
-<span class="token command">$ git diff<span class="token parameter"> --cached</span>/--staged</span>
-<span class="token comment" spellcheck="true"># 查看工作区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比</span>
-<span class="token command">$ git diff branchname</span>
-<span class="token comment" spellcheck="true"># 查看工作区与 HEAD 指向（默认当前分支最新的提交）的对比</span>
-<span class="token command">$ git diff HEAD   </span>
+# 查看暂存区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比
+$ git diff --cached/--staged
+# 查看工作区与上次提交到本地仓库的快照（即最新提交到本地仓库的快照）的对比
+$ git diff branchname
+# 查看工作区与 HEAD 指向（默认当前分支最新的提交）的对比
+$ git diff HEAD   
 
-<span class="token comment" spellcheck="true"># 查看两个本地分支中某一个文件的对比</span>
-<span class="token command">$ git diff branchname..branchname filename </span>
-<span class="token comment" spellcheck="true"># 查看两个本地分支所有的对比</span>
-<span class="token command">$ git diff branchname..branchname </span>
-<span class="token comment" spellcheck="true"># 查看远程分支和本地分支的对比</span>
-<span class="token command">$ git diff origin/branchname..branchname </span>
-<span class="token comment" spellcheck="true"># 查看远程分支和远程分支的对比</span>
-<span class="token command">$ git diff origin/branchname..origin/branchname </span>
+# 查看两个本地分支中某一个文件的对比
+$ git diff branchname..branchname filename 
+# 查看两个本地分支所有的对比
+$ git diff branchname..branchname 
+# 查看远程分支和本地分支的对比
+$ git diff origin/branchname..branchname 
+# 查看远程分支和远程分支的对比
+$ git diff origin/branchname..origin/branchname 
 
-<span class="token comment" spellcheck="true"># 查看两个 commit 的对比</span>
-<span class="token command">$ git diff commit1..commit2  </span></code></pre>
-<h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 查看所有远程主机</span>
-<span class="token command">$ git remote</span>
-<span class="token comment" spellcheck="true"># 查看关联的远程仓库的详细信息</span>
-<span class="token command">$ git remote<span class="token parameter"> -v</span> </span>
-<span class="token comment" spellcheck="true"># 删除远程仓库的 “关联”</span>
-<span class="token command">$ git remote rm projectname </span>
-<span class="token comment" spellcheck="true"># 设置远程仓库的 “关联”</span>
-<span class="token command">$ git remote set-url origin &lt;newurl></span></code></pre>
-<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><p>常用于发布版本</p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 默认在 HEAD 上创建一个标签 </span>
-<span class="token command">$ git tag v1.0</span>
-<span class="token comment" spellcheck="true"># 指定一个 commit id 创建一个标签 </span>
-<span class="token command">$ git tag v0.9 f52c633</span>
-<span class="token comment" spellcheck="true"># 创建带有说明的标签，用 -a 指定标签名，-m 指定说明文字</span>
-<span class="token command">$ git tag<span class="token parameter"> -a</span> v0.1<span class="token parameter"> -m</span> </span><span class="token string">"version 0.1 released"</span> 
+# 查看两个 commit 的对比
+$ git diff commit1..commit2  
+</code></pre>
+<h3 id="remote"><a class="markdownIt-Anchor" href="#remote">#</a> remote</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 查看所有远程主机
+$ git remote
+# 查看关联的远程仓库的详细信息
+$ git remote -v 
+# 删除远程仓库的 “关联”
+$ git remote rm projectname 
+# 设置远程仓库的 “关联”
+$ git remote set-url origin <newurl>
+</code></pre>
+<h3 id="tag"><a class="markdownIt-Anchor" href="#tag">#</a> tag</h3>
+<p>常用于发布版本</p>
+<pre class=" language-language-git"><code class="language-language-git"># 默认在 HEAD 上创建一个标签 
+$ git tag v1.0
+# 指定一个 commit id 创建一个标签 
+$ git tag v0.9 f52c633
+# 创建带有说明的标签，用 -a 指定标签名，-m 指定说明文字
+$ git tag -a v0.1 -m "version 0.1 released" 
 
-<span class="token comment" spellcheck="true"># 查看所有标签</span>
-<span class="token comment" spellcheck="true"># 注意：标签不是按时间顺序列出，而是按字母排序的。</span>
-<span class="token command">$ git tag</span>
+# 查看所有标签
+# 注意：标签不是按时间顺序列出，而是按字母排序的。
+$ git tag
 
-<span class="token comment" spellcheck="true"># 查看单个标签具体信息</span>
-<span class="token command">$ git show &lt;tagname></span>
+# 查看单个标签具体信息
+$ git show <tagname>
 
-<span class="token comment" spellcheck="true"># 推送一个本地标签</span>
-<span class="token command">$ git push origin &lt;tagname></span>
-<span class="token comment" spellcheck="true"># 推送全部未推送过的本地标签</span>
-<span class="token command">$ git push origin<span class="token parameter"> --tags</span></span>
+# 推送一个本地标签
+$ git push origin <tagname>
+# 推送全部未推送过的本地标签
+$ git push origin --tags
 
-<span class="token comment" spellcheck="true"># 删除本地标签</span>
-<span class="token comment" spellcheck="true"># 因为创建的标签都只存储在本地，不会自动推送到远程。</span>
-<span class="token comment" spellcheck="true"># 所以，打错的标签可以在本地安全删除。</span>
-<span class="token command">$ git tag<span class="token parameter"> -d</span> v0.1</span>
-<span class="token comment" spellcheck="true"># 删除一个远程标签（先删除本地 tag ，然后再删除远程 tag）</span>
-<span class="token command">$ git push origin :refs/tags/&lt;tagname></span></code></pre>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 删除暂存区和工作区的文件</span>
-<span class="token command">$ git rm filename  </span>
-<span class="token comment" spellcheck="true"># 只删除暂存区的文件，不会删除工作区的文件</span>
-<span class="token command">$ git rm<span class="token parameter"> --cached</span> filename </span></code></pre>
-<p>如果在配置 .gitignore 文件之前就把某个文件上传到远程仓库了，这时候想把远程仓库中的该文件删除，此时你配置 .gitignore 文件也没有用，因为该文件已经被追踪了，但又不想在本地删除该文件后再重新提交到远程仓库，这时候可以使用 git rm –cached filename 命令取消该文件的追踪，这样下次提交的时候，git 就不会再提交这个文件，从而远程仓库的该文件也会被删除</p>
+# 删除本地标签
+# 因为创建的标签都只存储在本地，不会自动推送到远程。
+# 所以，打错的标签可以在本地安全删除。
+$ git tag -d v0.1
+# 删除一个远程标签（先删除本地 tag ，然后再删除远程 tag）
+$ git push origin :refs/tags/<tagname>
+</code></pre>
+<h3 id="删除文件"><a class="markdownIt-Anchor" href="#删除文件">#</a> 删除文件</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 删除暂存区和工作区的文件
+$ git rm filename  
+# 只删除暂存区的文件，不会删除工作区的文件
+$ git rm --cached filename 
+</code></pre>
+<p>如果在配置 .gitignore 文件之前就把某个文件上传到远程仓库了，这时候想把远程仓库中的该文件删除，此时你配置 .gitignore 文件也没有用，因为该文件已经被追踪了，但又不想在本地删除该文件后再重新提交到远程仓库，这时候可以使用 git rm --cached filename 命令取消该文件的追踪，这样下次提交的时候，git 就不会再提交这个文件，从而远程仓库的该文件也会被删除</p>
 <p>版本切换 &amp; 重设 &amp; 撤销</p>
 <ul>
-<li>checkout 可以撤销工作区的文件，reset 可以撤销工作区/暂存区的文件</li>
+<li>checkout 可以撤销工作区的文件，reset 可以撤销工作区 / 暂存区的文件</li>
 <li>reset 和 checkout 可以作用于 commit 或者文件，revert 只能作用于 commit</li>
 </ul>
-<h3 id="checkout-详解"><a href="#checkout-详解" class="headerlink" title="checkout 详解"></a>checkout 详解</h3><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 恢复暂存区的指定文件到工作区</span>
-<span class="token command">$ git checkout &lt;filename></span>
-<span class="token comment" spellcheck="true"># 恢复暂存区的所有文件到工作区</span>
-<span class="token command">$ git checkout .</span>
+<h3 id="checkout-详解"><a class="markdownIt-Anchor" href="#checkout-详解">#</a> checkout 详解</h3>
+<pre class=" language-language-git"><code class="language-language-git"># 恢复暂存区的指定文件到工作区
+$ git checkout <filename>
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
 
-<span class="token comment" spellcheck="true"># 回滚到最近的一次提交</span>
-<span class="token comment" spellcheck="true"># 如果修改某些文件后，没有提交到暂存区，此时的回滚是回滚到上一次提交</span>
-<span class="token comment" spellcheck="true"># 如果是已经将修改的文件提交到仓库了，这时再用这个命令回滚无效</span>
-<span class="token comment" spellcheck="true"># 因为回滚到的是之前自己修改后提交的版本</span>
-<span class="token command">$ git checkout HEAD </span>
-<span class="token command">$ git checkout HEAD -- filename</span>
-<span class="token comment" spellcheck="true"># 回滚到最近一次提交的上一个版本</span>
-<span class="token command">$ git checkout HEAD^ </span>
-<span class="token comment" spellcheck="true"># 回滚到最近一次提交的上2个版本</span>
-<span class="token command">$ git checkout HEAD^^ </span>
+# 回滚到最近的一次提交
+# 如果修改某些文件后，没有提交到暂存区，此时的回滚是回滚到上一次提交
+# 如果是已经将修改的文件提交到仓库了，这时再用这个命令回滚无效
+# 因为回滚到的是之前自己修改后提交的版本
+$ git checkout HEAD 
+$ git checkout HEAD -- filename
+# 回滚到最近一次提交的上一个版本
+$ git checkout HEAD^ 
+# 回滚到最近一次提交的上2个版本
+$ git checkout HEAD^^ 
 
-<span class="token comment" spellcheck="true"># 切换分支，在这里也可以看做是回到项目「当前」状态的方式</span>
-<span class="token command">$ git checkout &lt;当前你正在使用的分支></span>
-<span class="token comment" spellcheck="true"># 切换到某个指定的 commit 版本</span>
-<span class="token command">$ git checkout &lt;commit_id></span>
-<span class="token comment" spellcheck="true"># 切换指定 tag </span>
-<span class="token command">$ git checkout &lt;tag></span></code></pre>
+# 切换分支，在这里也可以看做是回到项目「当前」状态的方式
+$ git checkout <当前你正在使用的分支>
+# 切换到某个指定的 commit 版本
+$ git checkout <commit_id>
+# 切换指定 tag 
+$ git checkout <tag>
+</code></pre>
 <ul>
-<li>在开发的正常阶段，HEAD 一般指向 master 或是其他的本地分支，但当你使用 git checkout <commit id=""> 切换到指定的某一次提交的时候，HEAD 就不再指向一个分支了——它直接指向一个提交，HEAD 就会处于 detached 状态（游离状态）。</commit></li>
+<li>在开发的正常阶段，HEAD 一般指向 master 或是其他的本地分支，但当你使用 git checkout <commit id=""> 切换到指定的某一次提交的时候，HEAD 就不再指向一个分支了 —— 它直接指向一个提交，HEAD 就会处于 detached 状态（游离状态）。</commit></li>
 <li>切换到某一次提交后，你可以查看文件，编译项目，运行测试，甚至编辑文件而不需要考虑是否会影响项目的当前状态，你所做的一切都不会被保存到主栈的仓库中。当你想要回到主线继续开发时，使用 git checkout branchName 回到项目初始的状态（这时候会提示你是否需要新建一条分支用于保留刚才的修改）。</li>
 <li>哪怕你切换到了某一版本的提交，并且对它做了修改后，不小心提交到了暂存区，只要你切换回分支的时候，依然会回到项目的初始状态。（注意：你所做的修改，如果 commit 了，会被保存到那个版本中。切换完分支后，会提示你是否要新建一个分支来保存刚才修改的内容。如果你刚才解决了一个 bug ，这时候可以新建一个临时分支，然后你本地自己的开发主分支去合并它，合并完后删除临时分支）。</li>
 <li>一般我都是用 checkout 回退版本，查看历史代码，测试 bug 在哪</li>
 </ul>
-<h3 id="reset-详解"><a href="#reset-详解" class="headerlink" title="reset 详解"></a>reset 详解</h3><p>git reset [–hard|soft|mixed|merge|keep] [<commit>或HEAD]：将当前的分支重设(reset)到指定的 <commit> 或者 HEAD (默认，如果不显示指定 <commit>，默认是 HEAD ，即最新的一次提交)，并且根据 [mode] 有可能更新索引和工作目录。mode 的取值可以是 hard、soft、mixed、merged、keep 。</commit></commit></commit></p>
-<pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 从暂存区撤销特定文件，但不改变工作区。它会取消这个文件的暂存，而不覆盖任何更改</span>
-<span class="token command">$ git reset &lt;fileName></span>
-<span class="token comment" spellcheck="true"># 重置暂存区最近的一次提交，但工作区的文件不变</span>
-<span class="token command">$ git reset </span>
-<span class="token comment" spellcheck="true"># 等价于 </span>
-<span class="token command">$ git reset HEAD （默认）</span>
-<span class="token comment" spellcheck="true"># 重置暂存区与工作区，回退到最近一次提交的版本内容</span>
-<span class="token command">$ git reset<span class="token parameter"> --hard</span> </span>
-<span class="token comment" spellcheck="true"># 重置暂存区与工作区，回退到最近一次提交的上一个版本</span>
-<span class="token command">$ git reset<span class="token parameter"> --hard</span> HEAD^ </span>
+<h3 id="reset-详解"><a class="markdownIt-Anchor" href="#reset-详解">#</a> reset 详解</h3>
+<p>git reset [–hard|soft|mixed|merge|keep] [<commit>或 HEAD]：将当前的分支重设 (reset) 到指定的 <commit> 或者 HEAD (默认，如果不显示指定 <commit>，默认是 HEAD ，即最新的一次提交)，并且根据 [mode] 有可能更新索引和工作目录。mode 的取值可以是 hard、soft、mixed、merged、keep 。</commit></commit></commit></p>
+<pre class=" language-language-git"><code class="language-language-git"># 从暂存区撤销特定文件，但不改变工作区。它会取消这个文件的暂存，而不覆盖任何更改
+$ git reset <fileName>
+# 重置暂存区最近的一次提交，但工作区的文件不变
+$ git reset 
+# 等价于 
+$ git reset HEAD （默认）
+# 重置暂存区与工作区，回退到最近一次提交的版本内容
+$ git reset --hard 
+# 重置暂存区与工作区，回退到最近一次提交的上一个版本
+$ git reset --hard HEAD^ 
 
-<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区，但工作区不变</span>
-<span class="token command">$ git reset &lt;commit></span>
-<span class="token comment" spellcheck="true"># 等价于 </span>
-<span class="token command">$ git reset<span class="token parameter"> --mixed</span>  &lt;commit></span>
+# 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区，但工作区不变
+$ git reset <commit>
+# 等价于 
+$ git reset --mixed  <commit>
 
-<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），但保持暂存区和工作区不变</span>
-<span class="token command">$ git reset<span class="token parameter"> --soft</span>  &lt;commit></span>
-<span class="token comment" spellcheck="true"># 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区、工作区</span>
-<span class="token command">$ git reset<span class="token parameter"> --hard</span>  &lt;commit></span></code></pre>
+# 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），但保持暂存区和工作区不变
+$ git reset --soft  <commit>
+# 将当前分支的指针指向为指定 commit（该提交之后的提交都会被移除），同时重置暂存区、工作区
+$ git reset --hard  <commit>
+</code></pre>
 <ul>
-<li>git reset 有很多种用法。它可以被用来移除提交快照，尽管它通常被用来撤销暂存区和工作区的修改。不管是哪种情况，它应该只被用于本地修改——你永远不应该重设和其他开发者共享的快照。</li>
+<li>git reset 有很多种用法。它可以被用来移除提交快照，尽管它通常被用来撤销暂存区和工作区的修改。不管是哪种情况，它应该只被用于本地修改 —— 你永远不应该重设和其他开发者共享的快照。</li>
 <li>当你用 reset 回滚到了某个版本后，那么在下一次 git 提交时，之前该版本后面的版本会被作为垃圾删掉。</li>
 <li>当我们回退到一个旧版本后，此时再用 git log 查看提交记录，会发现之前的新版本记录没有了。如果第二天，你又想恢复到新版本怎么办？找不到新版本的 commit_id 怎么办？</li>
 </ul>
-<p>我们可以用 git reflog 查看历史命令，这样就可以看到之前新版本的 commit_id ，然后 git reset –hard commit_id 就可以回到之前的新版本代码</p>
+<p>我们可以用 git reflog 查看历史命令，这样就可以看到之前新版本的 commit_id ，然后 git reset --hard commit_id 就可以回到之前的新版本代码</p>
 <ul>
 <li>虽然可以用 git reflog 查看本地历史，然后回复到之前的新版本代码，但是在别的电脑上是无法获取你的历史命令的，所以这种方法不安全。万一你的电脑突然坏了，这时候就无法回到未来的版本。</li>
 </ul>
@@ -1107,1058 +609,335 @@ $ gti add -u
             document.body.appendChild(img);
           });
       </script>
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
       </div>
-      <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/Git/" class="">
-              Git
-            </a>
-          
-        </div>
-        
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2020-06-15 17:27:28" itemprop="dateModified" datetime="2020-06-15T17:27:28+08:00">2020-06-15</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="小志 微信支付">
+        <p>微信支付</p>
       </div>
       
-        <div class="copyright">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-    <strong>作者:  </strong>Cheewing</a>
-    </li>
-    <li class="post-copyright-link">
-    <strong>文章链接:  </strong>
-    <a href="/2020/06/15/git/" target="_blank" title="git">https://cheewingtan.github.io/2020/06/15/git/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明:   </strong>
-      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
-      许可协议。转载请注明出处!
-    </li>
-  </ul>
-<div>
+      <div>
+        <img data-src="/images/alipay.png" alt="小志 支付宝">
+        <p>支付宝</p>
+      </div>
       
-    </article>
-    <!-- 上一篇文章和下一篇文章 -->
-    
-      <!-- 文章详情页的上一页和下一页 -->
+      <div>
+        <img data-src="/images/paypal.png" alt="小志 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>小志 <i class="ic i-at"><em>@</em></i>星霜荏苒
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://cheewingtan.github.io/2020/06/15/git/" title="git">https://cheewingtan.github.io/2020/06/15/git/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
 <div class="post-nav">
-
-
-
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/5.jpg" class="lazyload placeholder" data-srcset="/medias/5.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
-    </div>
-    <a href="/2020/07/02/gymlife/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">Gymlife</div>
-      </div>
+    <div class="item left">
       
-      <!-- <div class="content">
-        健身基础概要健身计划增肌期训练（重训），减脂期训练（有氧）
-一周计划 四天练全身参考盖伊锻炼计划Youtube链接其他参
-      </div> -->
-    </a>
-  </div>
 
+  <a href="/2020/06/01/laraveldeploy/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwrdwyaj20zk0m8are.jpg" title="How to Install and Configure Laravel with LEMP on Ubuntu 18.04">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>How to Install and Configure Laravel with LEMP on Ubuntu 18.04</h3>
+  </a>
 
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/2.jpg" class="lazyload placeholder" data-srcset="/medias/2.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2020/06/01/laraveldeploy/" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">How to Install and Configure Laravel with LEMP on Ubuntu 18.04</div>
-      </div>
-      <!-- <div class="content">
-        2020 Deploy Laravel Environment (LNMP=Linux、Nginx、MySQL、PHP、
-      </div> -->
-    </a>
-  </div>
+    <div class="item right">
+      
 
+  <a href="/2020/07/02/gymlife/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesx5fdwj20zk0m81kx.jpg" title="Gymlife">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Life</span>
+  <h3>Gymlife</h3>
+  </a>
+
+    </div>
 </div>
 
-    
-    
-
-    <!-- 打赏 -->
-    
-
-    <!-- 分享 -->
-    
-      <!-- https://github.com/overtrue/share.js -->
-<!-- 文章详情页的分享 -->
-<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-
-<script src="/js/shareJs/social-share.min.js"></script>
-</script>
-
-<style>
-  .social-share {
-    margin: 20px 0;
-  }
-</style>
-
-
-    
-    
-    <!-- 评论 -->
-    <!-- 评论 -->
-
-  <div id="myComment">
-    
-      <div id="gitment-container"></div>
-
-    
-  </div>
-
-<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
-
-
-  </div>
-
-  <!-- 目录 -->
-  <!-- 文章详情页右侧目录 -->
-
-  <div class="toc-aside">
-    <div class="toc-main">
-      <div class="toc-aside-title">
-        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
-        
-          <div class="toc-open-close">本文目录</div>
-        
-      </div>
-      <div class="toc-content">
-        <div class="toc"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 手机端目录按钮 -->
-  <div id="toc-mobile-btn">
-    <i class="fas fa-list-ul" aria-hidden="true"></i>
-  </div>
-
-
-<script>
-  function closeToc(init) {
-    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
-    $(".toc-content").css({'width': 0});
-    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
-    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
-  };
-  function openToc() {
-    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
-    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
-    $(".toc-content").css({'width': '300px'});
-    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
-  }
-  function openBtnClickFn () {
-    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
-    let open = eval('' || 'true');
-    openOrCloseBtn.click(function() {
-      if (open) {
-        closeToc();
-        open = false;
-      } else {
-        openToc();
-        open = true;
-      }
-    });
-  };
-  openBtnClickFn();
-  initCloseTocWidth(true);
-
-  function initCloseTocWidth(init) {
-    if (window.innerWidth >= 992) {
-      let isClose = false;
-      isClose && closeToc(init)
-    }
-  }
-
-  document.addEventListener('pjax:complete', function () {
-    $(".toc-aside").css({'transition': 'no'});
-  })
-  document.addEventListener('pjax:complete', function () {
-    openBtnClickFn();
-  })
   
-</script>
-
-  <!-- 图片放大 Wrap images with fancybox support -->
-  <script src="/js/wrapImage.js"></script>
-</div>
-
-<!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
-	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
-	<transition-group tag="ul" :name="names">
-		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-			<img :src="image" class="bg-swiper-img no-lazy">
-		</li>
-	</transition-group>
-</div>
-<script>
-	var vm = new Vue({
-		el: '#appBgSwiper',
-		data: {
-			names: '' || 'fade' || 'fade', // translate-fade fade
-			mark: 0,
-			img: [],
-			bgColor: '',
-			time: null
-		},
-		methods: {   //添加方法
-			change(i, m) {
-				if (i > m) {
-					// this.names = 'fade';
-				} else if (i < m) {
-					// this.names = 'fade';
-				} else {
-					return;
-				}
-				this.mark = i;
-			},
-			prev() {
-				// this.names = 'fade';
-				this.mark--;
-				if (this.mark === -1) {
-					this.mark = 3;
-					return
-				}
-			},
-			next() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			autoPlay() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			play() {
-				let bgImgDelay = '' || '180000'
-				let delay = parseInt(bgImgDelay) || 180000;
-				this.time = setInterval(this.autoPlay, delay);
-			},
-			enter() {
-				clearInterval(this.time);
-			},
-			leave() {
-				this.play();
-			}
-		},
-		created() {
-			this.play()
-		},
-		beforeDestroy() {
-			clearInterval(this.time);
-		},
-		mounted() {
-			let prop = '' || '';
-			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
-			if (isImg) {
-				let img = prop.split(',');
-				let configRoot = '/'
-				let arrImg = [];
-				img.forEach(el => {
-					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-					var objExp = new RegExp(Expression);
-
-					if (objExp.test(el)) {
-						// http or https
-						arrImg.push(el);
-					} else {
-						// 非http or https开头
-						// 本地文件
-						let firstStr = el.charAt(0);
-						if (firstStr == '/') {
-							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-						}
-						el = configRoot + el;
-						arrImg.push(el);
-					}
-				})
-				this.img = arrImg;
-			} else {
-				this.bgColor = prop;
-			}
-		}
-	})
-</script>
-
-<style>
-	.bg-swiper-box {
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.bg-swiper-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  <div class="wrap" id="comments"></div>
 
 
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-
-
-
-  <script>
-  function loadMermaid() {
-    if (document.getElementsByClassName('mermaid').length) {
-      if (window.mermaidJsLoad) mermaid.init()
-      else {
-        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
-          window.mermaidJsLoad = true
-          mermaid.initialize({
-            theme: 'default',
-          })
-          if ('true') {
-            mermaid.init();
-          }
-        })
-      }
-    }
-  };
-  document.addEventListener("DOMContentLoaded", function () {
-    loadMermaid();
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    loadMermaid();
-  })
-  
-</script>
-
-
-      </main>
-    </div>
-
-    <!-- 页脚 -->
-    
-  
-  <div class="footer bg-color">
-    <div class="footer-main">
-      
-        
-          <div class="link">
-            
-          </div>
-        
-      
-        
-          <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
-
-          </div>
-        
-      
-        
+        </div>
+        <div id="sidebar">
           
-            <!-- 不蒜子统计 -->
-            <!-- 不蒜子统计 -->
-<span id="busuanzi_container_site_pv">
-      <i class="fas fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
-</span>
-<span class="post-meta-divider">|</span>
-<span id="busuanzi_container_site_uv" style='display:none'>
-      <i class="fas fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
-</span>
 
-          
-        
-      
-        
-          <div class="footer-custom">
-            
-          </div>
-        
-      
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E5%85%A8%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text"> Git 全集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEgit"><span class="toc-number">1.1.</span> <span class="toc-text"> 配置 Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bgit%E4%BF%A1%E6%81%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> 查看 Git 信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reflog"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Git reflog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log-%E7%82%B9%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Git log 点线图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text"> Git 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.</span> <span class="toc-text"> Git 常用命令详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">1.4.1.</span> <span class="toc-text"> add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#status"><span class="toc-number">1.4.2.</span> <span class="toc-text"> Status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push-pull"><span class="toc-number">1.4.3.</span> <span class="toc-text"> push &amp; pull</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch"><span class="toc-number">1.4.4.</span> <span class="toc-text"> branch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge%E4%B8%89%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%90%88%E5%B9%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.5.</span> <span class="toc-text"> merge 三种常用合并方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">1.4.6.</span> <span class="toc-text"> rebase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stach"><span class="toc-number">1.4.7.</span> <span class="toc-text"> stach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff"><span class="toc-number">1.4.8.</span> <span class="toc-text"> diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#remote"><span class="toc-number">1.4.9.</span> <span class="toc-text"> remote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tag"><span class="toc-number">1.4.10.</span> <span class="toc-text"> tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.11.</span> <span class="toc-text"> 删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkout-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.12.</span> <span class="toc-text"> checkout 详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.13.</span> <span class="toc-text"> reset 详解</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2020/06/15/git/" rel="bookmark" title="git">git</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="小志"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">小志</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">11</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
     </div>
   </div>
 
-
-
-    <!-- 渲染暗黑按钮 -->
-    
-      <div class="dark">
-  <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
-  </div>
-  
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2020/06/01/laraveldeploy/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2020/07/02/gymlife/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
 </div>
 
-<script>
-  $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
-    if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-    }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
-</script>
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
     
-    <!-- 渲染回到顶部按钮 -->
-    
-      <div class="goTop top-btn-color" pointer>
-  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="分类于 Tech">Tech</a>
 </div>
-<script src="/js/goTop.js"></script>
 
+    <span><a href="/2020/06/15/git/" title="git">git</a></span>
+  </li>
+
+      
+  <li class="item">
     
-    <!-- 渲染左下角音乐播放器 -->
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2020/11/08/Lunar/" title="中国农历的算法">中国农历的算法</a></span>
+  </li>
+
+      
+  <li class="item">
     
-      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
-<style>
-.aplayer .aplayer-lrc p {
-  
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px !important;
-}
+<div class="breadcrumb">
+</div>
 
-.aplayer .aplayer-lrc p.aplayer-lrc-current {
-  
-  font-size: 15px;
-  color: #42b983;
-}
+    <span><a href="/2020/05/29/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
 
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-  left: -66px !important;
-}
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-  left: 0px !important;
-}
-
-
-</style>
-<meting-js  
-  class=""
-  server="tencent"
-  type="playlist"
-  id="8062553743"
-  fixed='true'
-  autoplay='false'
-  theme='#42b983'
-  loop='all'
-  order='random'
-  preload='auto'
-  volume='0.7'
-  list-folded='true'
->
-</meting-js>
-
-<!-- <style>
-  #aplayer {
-    position: fixed;
-    left: 0;
-    bottom: 300px;
-  }
-</style> -->
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+      
+  <li class="item">
     
+<div class="breadcrumb">
+</div>
 
-    <!-- 图片放大 -->
+    <span><a href="/2020/05/31/testing/" title="Hexo + Markdown 语法参考">Hexo + Markdown 语法参考</a></span>
+  </li>
+
+      
+  <li class="item">
     
-      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2020/05/31/mindmap/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
     
+<div class="breadcrumb">
+<a href="/categories/Life/" title="分类于 Life">Life</a>
+</div>
 
-    <!-- 百度解析 -->
-    <!-- Baidu Analytics -->
+    <span><a href="/2020/07/02/gymlife/" title="Gymlife">Gymlife</a></span>
+  </li>
 
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
+      
+  <li class="item">
     
-    <!-- 背景彩带 -->
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2020/07/02/law/" title="世间的一些规则">世间的一些规则</a></span>
+  </li>
+
+      
+  <li class="item">
     
-      <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2020/05/31/mindmap/" title="Mindmap for Markdown">Mindmap for Markdown</a></span>
+  </li>
+
+      
+  <li class="item">
     
+<div class="breadcrumb">
+</div>
 
-    <script src="/js/utils/index.js"></script>
-    <script src="/js/app.js"></script>
+    <span><a href="/2020/07/13/roam/" title="Roam Research">Roam Research</a></span>
+  </li>
+
+      
+  <li class="item">
     
-    <!-- 文章目录所需js -->
-<link href="/js/tocbot/tocbot.css" rel="stylesheet">
-<script src="/js/tocbot/tocbot.min.js"></script>
+<div class="breadcrumb">
+</div>
 
-<script>
-  var headerEl = 'h2, h3, h4',  //headers 
-    content = '.post-detail',//文章容器
-    idArr = {};  //标题数组以确定是否增加索引id
-  //add #id
-  var option = {
-    // Where to render the table of contents.
-    tocSelector: '.toc',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: content,
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: headerEl,
-    scrollSmooth: true,
-    scrollSmoothOffset: -80,
-    headingsOffset: -($(window).height() * 0.4 - 45),
-    positionFixedSelector: '.toc-main',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto',
-    activeLinkClass: 'is-active-link',
-    // onClick: function (e) {},
-  }
-  if ($('.toc').length > 0) {
+    <span><a href="/2020/06/01/laraveldeploy/" title="How to Install and Configure Laravel with LEMP on Ubuntu 18.04">How to Install and Configure Laravel with LEMP on Ubuntu 18.04</a></span>
+  </li>
 
-    $(content).children(headerEl).each(function () {
-      //去除空格以及多余标点
-      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
 
-      headerId = headerId.toLowerCase();
-      if (idArr[headerId]) {
-        //id已经存在
-        $(this).attr('id', headerId + '-' + idArr[headerId]);
-        idArr[headerId]++;
-      }
-      else {
-        //id未存在
-        idArr[headerId] = 1;
-        $(this).attr('id', headerId);
-      }
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      tocbot.init(option);
-      mobileTocClick();
-    });
-
-  }
-
-  window.tocScrollFn = function () {
-    return bamboo.throttle(function () {
-      findHeadPosition();
-    }, 100)()
-  }
-  window.addEventListener('scroll', tocScrollFn);
-
-  const findHeadPosition = function (top) {
-    if ($('.toc-list').length <= 0) {
-      return false;
-    }
-    setTimeout(() => {  // or DOMContentLoaded 
-      autoScrollToc();
-    }, 0);
-  }
-
-  const autoScrollToc = function () {
-    const $activeItem = document.querySelector('.is-active-link');
-    const $cardToc = document.querySelector('.toc-content');
-    const activePosition = $activeItem.getBoundingClientRect().top
-    const sidebarScrollTop = $cardToc.scrollTop
-    if (activePosition > (document.documentElement.clientHeight - 100)) {
-      $cardToc.scrollTop = sidebarScrollTop + 150
-    }
-    if (activePosition < 100) {
-      $cardToc.scrollTop = sidebarScrollTop - 150
-    }
-  }
-
-  document.addEventListener('pjax:send', function () {
-    if ($('.toc').length) {
-      tocbot.destroy();
-    }
-  });
-
-  document.addEventListener('pjax:complete', function () {
-    if ($('.toc').length) {
-      tocbot.init(option);
-      mobileTocClick();
-    }
-  });
-  
-  // 手机端toc按钮点击出现目录
-  const mobileTocClick = function () {
-    const $cardTocLayout = document.getElementsByClassName('toc-aside')[0];
-    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
-    let right = '45px';
-    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
-      right = '100px'
-    }
-    const mobileToc = {
-      open: () => {
-        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
-      },
-
-      close: () => {
-        $cardTocLayout.style.animation = 'toc-close .2s'
-        setTimeout(() => {
-          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
-        }, 100)
-      }
-    }
-    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
-      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
-      else mobileToc.close()
-    })
-
-    $cardToc.addEventListener('click', (e) => {
-      if (window.innerWidth < 992) { // 小于992px的时候
-        mobileToc.close()
-      }
-    })
-  }
-</script>
-
-<style>
-  .is-position-fixed {
-    position: sticky !important;
-    top: 74px;
-  }
-
-  .toc-main ul {
-    counter-reset: show-list;
-  }
-
-  .toc-main ul li::before {
-    content: counter(item)".";
-    display: block;
-    position: absolute;
-    left: 12px;
-    top: 0;
-  }
-</style> 
-
-<!-- 设置导航背景 -->
-<script>
-  let setHeaderClass = () => {
-    const headerMenuTransparent = true;
-    if (!headerMenuTransparent) { return; }
-    const nav = $('#navHeader');
-    const navTop = nav.outerHeight();
-    const winTop = $(window).scrollTop();
-    if(winTop > navTop) {
-      nav.addClass('header-bg-color');
-    }
-    else {
-      nav.removeClass('header-bg-color');
-    }
-  };
-
-  let scrollCollect = () => {
-    return bamboo.throttle(function (e) {
-      setHeaderClass();
-    }, 200)()
-  }
-
-  let initHeaderBg = () => {
-    setHeaderClass();
-  }
-
-  setHeaderClass();
-  window.addEventListener('scroll', scrollCollect);
-
-  document.addEventListener('pjax:send', function () {
-    window.removeEventListener('scroll', scrollCollect)
-  })
-  document.addEventListener('pjax:complete', function () {
-    window.addEventListener('scroll', scrollCollect);
-    setHeaderClass();
-  })
-</script> 
-
-<!-- 渲染issues标签里的内容 -->
-<script>
-  function loadIssuesJS() {
-    if ($(".post-detail").find(".issues-api").length == 0) {
-      return;
-    } 
-    loadScript('/js/issues/index.js');
-  };
-  $(function () {
-    loadIssuesJS();
-  });
-  document.addEventListener('pjax:complete', function () {
-    if (typeof IssuesAPI == "undefined") {
-      loadIssuesJS();
-    }
-  })
-</script>
-
-<!-- 输入框打字特效 -->
-<!-- 输入框打字特效 -->
-
-  <script src="/js/activate-power-mode.js"></script>
-  <script>
-    POWERMODE.colorful = true;  // 打开随机颜色特效
-    POWERMODE.shake = false;    // 关闭输入框抖动
-    document.body.addEventListener('input', POWERMODE);//监听打字事件
-  </script>
-
-
-<!-- markdown代码一键复制功能 -->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
-  <script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
-  <script src="/js/clipboard/clipboard.min.js"></script>
-  <div id="appCopy">
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">小志 @ Milchstraße</span>
   </div>
-  <script data-pjax>
-    var vm = new Vue({
-      el: '#appCopy',
-      data: {
-      },
-      computed: {
-      },
-      mounted() {
-        const that = this;
-        var copy = '复制';
-        /* code */
-        var initCopyCode = function () {
-          var copyHtml = '';
-          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
-          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
-          copyHtml += '</button>';
-          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
-          $(".post-detail pre").not('.gutter pre').before(copyHtml);
-          new ClipboardJS('.btn-copy', {
-            target: function (trigger) {
-              return trigger.nextElementSibling;
-            }
-          });
-        }
-        initCopyCode();
-        $('.btn-copy').unbind('click').bind('click', function () {
-          doSomething();
-        })
-        $(document).unbind('keypress').bind('keypress', function (e) {
-          if (e.ctrlKey && e.keyCode == 67) {
-            doSomething();
-          }
-        })
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
 
-        function doSomething() {
-          that.$notify({
-            title: "成功",
-            content: "代码已复制，请遵守相关授权协议。",
-            type: 'success'
-          })
-        }
-      },
-      methods: {
-      },
-      created() { }
-    })
-  </script>
-  
-
-<!-- 图片懒加载 -->
-<script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2020/06/15/git/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
     },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-<!-- 卡片滚动动画 -->
-   
-
-<!-- 评论所需js -->
-
-  
-    <script type="text/javascript">
-  var utteranceCommon = {};
-
-  function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
-    if (isDark) {
-      utteranceCommon.Theme = 'github-dark';
-    } else {
-      utteranceCommon.Theme = 'github-light';
-    }
-
-    return document.getElementById("gitment-container");
-  }
-  comment_el = '#gitment-container';
-  load_utterance = function () {
-    if ($(comment_el).length) {
-      // 匿名函数，防止污染全局变量
-      const HEAD = check_utterance();
-
-      var utterances = document.createElement('script');
-      utterances.type = 'text/javascript';
-      utterances.async = true;
-      utterances.setAttribute('issue-term', 'pathname')
-      utterances.setAttribute('theme', utteranceCommon.Theme)
-      utterances.setAttribute('repo', '')
-      utterances.crossorigin = 'anonymous';
-      utterances.src = 'https://utteranc.es/client.js';
-      // content 是要插入评论的地方
-      document.getElementById('gitment-container').appendChild(utterances);
-
-    }
-  }
-
-  function dark_utterance() {
-    const HEAD = check_utterance();
-    if (!HEAD) return;
-    const message = {
-      type: 'set-theme',
-      theme: utteranceCommon.Theme
-    };
-    const utteranceIframe = document.querySelector('iframe');
-    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
-  }
-
-  $(document).ready(load_utterance);
-  document.addEventListener('pjax:complete', function () {
-    load_utterance();
-  });
-
-  $('.dark').click(function () {
-    setTimeout(() => {
-      dark_utterance();
-    });
-  })
-
-</script>
-
-<style>
-  .utterances {
-    max-width: inherit !important;
-  }
-</style>
-  
-
-
-<!-- 鼠标点击特效 -->
-<!-- 爱心点击 -->
-
-  
-    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
-    <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-    <script src="/js/cursor/explosion.min.js"></script>
-  
-
-
-
-
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
-
-
-    <!-- pjax -->
-    
-
-<!-- pjax -->
-
-
-  <script src="/js/pjax@0.2.8/index.js"></script>
-  
-    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
-  
-    <div class="loading-circle"><div id="loader-circle"></div></div>
-    <script>
-      window.ShowLoading = function() {
-        $(".loading-circle").css("display", "block");
-      };
-      window.HideLoading = function() {
-        $(".loading-circle").css("display", "none");
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
       }
-    </script>
-  
-	<script>
-    document.addEventListener('pjax:complete', function () {
-      window.HideLoading();
-    })
-    document.addEventListener('pjax:send', function () {
-      window.ShowLoading();
-    })
-    document.addEventListener('pjax:error', function () {
-      window.HideLoading();
-    })
-	</script>
-</div>
+    ]
+  };
+</script>
 
-  
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 
-  <script>
-    var pjax = new Pjax({
-      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
-      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
-      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-      timeout: 5000
-    });
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-    document.addEventListener('pjax:send', function (e) {
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
-      } catch (error) {}
-
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-
-    })
-    
-    document.addEventListener('pjax:complete', function () {
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-      window.location.href = e.triggerElement.href;
-    })
-    
-    // 刷新不从顶部开始
-    document.addEventListener("DOMContentLoaded", function () {
-      history.scrollRestoration = 'auto';
-    })
-  </script>
+<script src="/js/app.js?v=0.2.5"></script>
 
 
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
